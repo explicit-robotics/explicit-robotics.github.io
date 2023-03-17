@@ -6,4 +6,4 @@ Code Documentations
 
 The whole code
 ===============
-The code structure
+Simply inherit the RobotPrimtives class.

@@ -6,4 +6,4 @@ Code Structure
 
 How to Install
 ==============
-The code structure
+The code structure is for Explicit-MATLAB.
