@@ -6,5 +6,15 @@ Installation
 
 How to Install
 ==============
+This shows how to install Explicit-MATLAB
 
-Fill in
+.. admonition:: In case if you don't have MATLAB	
+
+	We assume that the recent version of MATLAB is installed. 
+
+Once you clone the repository, simply run:
+.. parsed-literal::
+
+    setup
+
+And you are all set!
