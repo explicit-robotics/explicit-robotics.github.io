@@ -19,6 +19,21 @@ Welcome to EXPlicit documentation!
 
    exp_theory/product_of_exponentials_formula
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Robots
+
+   exp_robot/kuka_iiwa7
+   exp_robot/kuka_iiwa14   
+   exp_robot/franka   
+
+.. toctree::
+   :maxdepth: 2
+   :caption: MATLAB Code Documentation
+
+   exp_MATLAB/code_structure
+   exp_MATLAB/documentation
+
 
 Indices and tables
 ==================
