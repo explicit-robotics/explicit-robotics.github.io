@@ -18,7 +18,7 @@ release = 'v 1.0.0'
 
 
 # Although annoying, we need to include the "absolute path of the explicit-MATLAB"
-# matlab_src_dir = os.path.abspath( '../..')
+# matlab_src_dir = '/Users/mosesnah/Documents/GitHub/Explicit-MATLAB'
 
 extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc'  ]
 
