@@ -6,3 +6,4 @@ The theory of Product of Exponentials Formula starts with discussing the exponen
 
 Geometric and Inertial Parameters
 =================================
+FILL IN
