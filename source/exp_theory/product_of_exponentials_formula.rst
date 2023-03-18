@@ -2,4 +2,13 @@
 Product of Exponentials Formula
 ================================
 The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
-.. If :math:`\sigma_{1}` equals :math:`\sigma_{2}` then etc, etc.
+Consider the following equation:
+
+.. math::
+	\mathbf{p}(t) = 
+
+Moreover, 
+
+.. math::
+	{}^{S}H_{ee} = \exp(\eta)
+

@@ -18,13 +18,17 @@ release = 'v 1.0.0'
 
 
 # Although annoying, we need to include the "absolute path of the explicit-MATLAB"
-# matlab_src_dir = '/Users/mosesnah/Documents/GitHub/Explicit-MATLAB'
+matlab_src_dir = '/Users/mosesnah/Documents/GitHub/Explicit-MATLAB'
 
 extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc'  ]
 
 # templates_path = ['_templates']
 # exclude_patterns = []
-# primary_domain = 'mat'
+primary_domain = 'mat'
+
+add_module_names = False
+
+
 
  
 # -- Options for HTML output -------------------------------------------------

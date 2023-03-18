@@ -22,18 +22,16 @@ Welcome to EXPlicit documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Robots
-
-   exp_robot/kuka_iiwa7
-   exp_robot/kuka_iiwa14   
-   exp_robot/franka   
+   
+   2D_robot
+   3D_robot
 
 .. toctree::
    :maxdepth: 2
    :caption: MATLAB Code Documentation
-
+   
    exp_MATLAB/code_structure
-   exp_MATLAB/documentation
-
+   exp_MATLAB/documentation   
 
 Indices and tables
 ==================
