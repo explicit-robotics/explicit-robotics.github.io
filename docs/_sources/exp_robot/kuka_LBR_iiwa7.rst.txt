@@ -1,10 +1,21 @@
-===========
-Kuka iiwa7
-===========
+==============
+Kuka LBR iiwa7
+==============
 
-We introduce `Kuka LBR iiwa 7`_. Kuka LBR iiwa 7 has 7 degrees of freedom. Note that iiwa 7 indicates the payload of the robot, rather than the degrees of freedom.
+We introduce `Kuka LBR iiwa7`_. 
 
-.. _`Kuka LBR iiwa 7`: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa
+.. _`Kuka LBR iiwa7`: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa
+
+Linkages of LBR iiwa7
+==================================
+Kuka LBR iiwa7 has 7 degrees of freedom, with 7 linkages. 
+Note that LBR iiwa7 indicates the payload of the robot, rather than the degrees of freedom.
+The 7 linkages and the fixed basis of the robot is shown below:
+
+.. figure:: ../images/LBR_iiwa7_Linkage.png
+	:align: center
+	:width: 90%
+
 
 The Locations of Center of Mass 
 ==================================
@@ -16,26 +27,34 @@ The Center of Mass locations of 7 links are depicted below.
 
 
 .. list-table:: 
-   :widths: 30 30
+   :widths: 30 30 15
    :header-rows: 1
    :align: center 
    
    * - Center of Mass
      - Center of Mass Locations (m)
+     - Mass (kg)
    * - COM1
      - (0, -0.0187, 0.2541)
+     - 2.7426
    * - COM2
      - (-0.0002, 0.0140, 0.4225)
+     - 4.9464
    * - COM3
      - (-0.0002, 0.0195, 0.6509)
+     - 2.5451
    * - COM4
      - (-0.0002, -0.0091, 0.8260)
+     - 4.6376
    * - COM5
      - (0.0000, -0.0135, 1.0185)
+     - 1.7140
    * - COM6
      - (-0.0003, -0.0196, 1.1571)
+     - 2.4272
    * - COM7
      - (0.000, 0.0001, 1.2306)
+     - 0.4219
 
 
 Initial Configuration and Joint Parameters
@@ -95,6 +114,10 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
 
 The details of each values and the related theoretical backgrounds are presented in this post.
 
+
+Principal Axes and Principal Moment of Inertia 
+================================================
+TBA
 
 Example
 =========
