@@ -1,4 +1,4 @@
-3D Planar Robots
+3D Spatial Robots
 ====================================
 
 .. toctree::

@@ -11,6 +11,21 @@ The software is developed and maintained by `Moses C. Nah`_ and `Johannes Lachne
 Explicit is open-source and free, following the spirit of `Richard Stallman`_.
 Currently, Explicit-MATLAB is available. Explicit-C++ and Explicit-py will be soon available.
 
+We show some robot examples
+
+.. list-table::
+
+	* - .. figure:: ../images/triple_pendulum.gif
+				:width: 100%	
+
+	  - .. figure:: ../images/triple_pendulum.gif
+				:width: 100%	
+
+.. list-table::
+
+	* - 
+	  -
+
 Benefits of Explicit
 ====================
 Why should one use Explicit? We listed some benefits:

@@ -33,7 +33,7 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
 
    * - Joint
      - Type 
-     - Point on Joint Twist Axis
+     - Point on Joint Twist Axis (m)
      - Joint Direction
      - Joint Twist 
    * - Joint 1
