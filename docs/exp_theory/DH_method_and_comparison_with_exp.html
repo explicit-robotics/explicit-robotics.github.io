@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuka LBR iiwa14 &mdash; explicit-robotics v 1.0.0 documentation</title>
+  <title>Denavit-Hartenberg Parameters &mdash; explicit-robotics v 1.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,11 +14,12 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Franka" href="franka.html" />
-    <link rel="prev" title="Kuka LBR iiwa7" href="kuka_LBR_iiwa7.html" /> 
+    <link rel="next" title="Product of Exponentials Formula" href="product_of_exponentials_formula.html" />
+    <link rel="prev" title="Installation" href="../exp_user/installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,23 +47,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/installation.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Denavit-Hartenberg Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="kuka_LBR_iiwa7.html">Kuka LBR iiwa7</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Kuka LBR iiwa14</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#linkages-of-lbr-iiwa7">Linkages of LBR iiwa7</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#geometric-and-inertial-parameters">Geometric and Inertial Parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="franka.html">Franka</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
 <ul>
@@ -84,10 +76,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../3D_robot.html">3D Spatial Robots</a></li>
-      <li class="breadcrumb-item active">Kuka LBR iiwa14</li>
+      <li class="breadcrumb-item active">Denavit-Hartenberg Parameters</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/exp_robot/kuka_LBR_iiwa14.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/exp_theory/DH_method_and_comparison_with_exp.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,29 +86,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="kuka-lbr-iiwa14">
-<h1>Kuka LBR iiwa14<a class="headerlink" href="#kuka-lbr-iiwa14" title="Permalink to this heading"></a></h1>
-<p>We introduce <a class="reference external" href="https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa">Kuka LBR iiwa 14</a>.</p>
-<section id="linkages-of-lbr-iiwa7">
-<h2>Linkages of LBR iiwa7<a class="headerlink" href="#linkages-of-lbr-iiwa7" title="Permalink to this heading"></a></h2>
-<p>Kuka LBR iiwa14 has 7 degrees of freedom, with 7 linkages.
-The 7 linkages and the fixed basis of the robot is shown below:</p>
-<figure class="align-center">
-<a class="reference internal image-reference" href="images/LBR_iiwa14_Linkage.png"><img alt="images/LBR_iiwa14_Linkage.png" src="images/LBR_iiwa14_Linkage.png" style="width: 90%;" /></a>
-</figure>
-</section>
-<section id="geometric-and-inertial-parameters">
-<h2>Geometric and Inertial Parameters<a class="headerlink" href="#geometric-and-inertial-parameters" title="Permalink to this heading"></a></h2>
-<p>FILL IN</p>
-</section>
+  <section id="denavit-hartenberg-parameters">
+<h1>Denavit-Hartenberg Parameters<a class="headerlink" href="#denavit-hartenberg-parameters" title="Permalink to this heading"></a></h1>
+<p>The theory of Product of Exponentials Formula starts with discussing the exponential mapping.
+Consider the following equation:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{p}(t) =\]</div>
+<p>Moreover,</p>
+<div class="math notranslate nohighlight">
+\[{}^{S}H_{ee} = \exp(\eta)\]</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="kuka_LBR_iiwa7.html" class="btn btn-neutral float-left" title="Kuka LBR iiwa7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="franka.html" class="btn btn-neutral float-right" title="Franka" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../exp_user/installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="product_of_exponentials_formula.html" class="btn btn-neutral float-right" title="Product of Exponentials Formula" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -31,6 +31,13 @@ Benefits of Explicit
 Why should one use Explicit? We listed some benefits:
 
 
+Comparison with Denavit-Hartenberg Method
+------------------------------------------
+The forward kinematics problem 
+Denavit-Hartenberg parameters have been used to ca
+
+
+
 .. _`Moses C. Nah`: https://github.com/mosesnah-shared
 .. _`Johannes Lachner`: https://scholar.google.com/citations?user=i5KAhh4AAAAJ&hl=de
 .. _`Richard Stallman`: https://en.wikipedia.org/wiki/Richard_Stallman

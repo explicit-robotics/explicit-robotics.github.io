@@ -6,6 +6,16 @@ We introduce `Kuka LBR iiwa 14`_.
 
 .. _`Kuka LBR iiwa 14`: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa
 
+Linkages of LBR iiwa7
+==================================
+Kuka LBR iiwa14 has 7 degrees of freedom, with 7 linkages. 
+The 7 linkages and the fixed basis of the robot is shown below:
+
+.. figure:: ../images/LBR_iiwa14_Linkage.png
+	:align: center
+	:width: 90%
+
+
 Geometric and Inertial Parameters
 =================================
 FILL IN
