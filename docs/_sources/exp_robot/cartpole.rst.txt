@@ -2,9 +2,8 @@
 Cart-Pole
 ===========
 
-Cart-pole robot is one of the examples often used in robotics. 
 In this simulation, we simulate a planar 2-DOF cart-pole robot.
-The file contained in robots directory. 
+The file is contained in robots directory. 
 
 Geometric and Inertial Parameters
 ==================================

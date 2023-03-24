@@ -18,4 +18,4 @@ The 7 linkages and the fixed basis of the robot is shown below:
 
 Geometric and Inertial Parameters
 =================================
-FILL IN
+FILL IN 
