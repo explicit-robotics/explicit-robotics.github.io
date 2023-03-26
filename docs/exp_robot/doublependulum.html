@@ -45,6 +45,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_user/code_structure.html">Code Structure</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
 <ul>
@@ -69,7 +70,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/code_structure.html">Code Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
 </ul>
 
@@ -100,9 +100,7 @@
              
   <section id="double-pendulum">
 <h1>Double Pendulum<a class="headerlink" href="#double-pendulum" title="Permalink to this heading"></a></h1>
-<p>Double pendulum robot, also known as Acrobot, is one of the examples often used in robotics.
-In this simulation, we simulate a planar 2-DOF double pendulum robot.
-The file contained in robots directory.</p>
+<p>Double pendulum robot, also known as Acrobot, is one of the examples often used in robotics.</p>
 <section id="geometric-and-inertial-parameters">
 <h2>Geometric and Inertial Parameters<a class="headerlink" href="#geometric-and-inertial-parameters" title="Permalink to this heading"></a></h2>
 <p>The double pendulum consists of:</p>
@@ -152,19 +150,19 @@ The file contained in robots directory.</p>
 </tr>
 </tbody>
 </table>
-<p>The details of each values and the related theoretical backgrounds are presented in this post.</p>
+<p>The details of each values and the related theoretical backgrounds are presented in the Theory posts.</p>
 </section>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>To construct the double-pendulum robot, simply run the following code:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of the double pendulum robot</span>
 <span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the  first link</span>
-<span class="n">l1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the  first link</span>
 <span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the second link</span>
+<span class="n">l1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the  first link</span>
 <span class="n">l2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the second link</span>
 
-<span class="c">% Construct the cart-pole robot and initialize</span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DoublePendulum</span><span class="p">(</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="p">);</span>
+<span class="c">% Construct the double-pendulum robot and initialize</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DoublePendulum</span><span class="p">(</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="p">);</span>
 <span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
 
 <span class="c">% Attach the double-pendulum robot to animation for visualization</span>
@@ -181,19 +179,23 @@ The file contained in robots directory.</p>
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="robots.DoublePendulum">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">DoublePendulum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">m1</span></em>, <em class="sig-param"><span class="pre">l1</span></em>, <em class="sig-param"><span class="pre">m2</span></em>, <em class="sig-param"><span class="pre">l2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#robots.DoublePendulum" title="Permalink to this definition"></a></dt>
-<dd><p>Constructs a planar 2-DOF Double Pendulum robot.
-The links are assumed to have uniform mass densities.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">DoublePendulum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">m1</span></em>, <em class="sig-param"><span class="pre">m2</span></em>, <em class="sig-param"><span class="pre">l1</span></em>, <em class="sig-param"><span class="pre">l2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#robots.DoublePendulum" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs a planar 2-DOF Double Pendulum robot.</p>
+<p>The links are assumed to have uniform mass densities.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>m1</strong> – The mass (kg) of the first link.</p></li>
-<li><p><strong>l1</strong> – The length (m) of the first link.</p></li>
-<li><p><strong>m2</strong> – The mass (kg) of the second link.</p></li>
-<li><p><strong>l2</strong> – The length (m) of the second link.</p></li>
+<li><p><strong>m1</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The mass (kg) of the first link.</p></li>
+<li><p><strong>m2</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The mass (kg) of the second link.</p></li>
+<li><p><strong>l1</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The length (m) of the first link.</p></li>
+<li><p><strong>l2</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The length (m) of the second link.</p></li>
 </ul>
 </dd>
 </dl>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p><cite>m1</cite>, <cite>m2</cite>, <cite>l1</cite>, <cite>l2</cite> must be positive values</p>
+</div>
 </dd></dl>
 
 </section>

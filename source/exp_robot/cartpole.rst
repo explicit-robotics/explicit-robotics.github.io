@@ -2,8 +2,7 @@
 Cart-Pole
 ===========
 
-In this simulation, we simulate a planar 2-DOF cart-pole robot.
-The file is contained in robots directory. 
+Cart-Pole robot is one of the examples often used in robotics. 
 
 Geometric and Inertial Parameters
 ==================================
@@ -16,6 +15,8 @@ The cart-pole system consists of:
 - A cart with point mass :math:`m_c`, depicted in orange square. 
 - A pole with length :math:`l_p`, with point mass :math:`m_p` attached to the end of the pole. The point mass :math:`m_p` is depicted in black circle.
 
+Note that the system consists of point masses, i.e., the center of mass of each link is identical to the position of the mass. 
+Moreover, the moment of inertia about the center of mass can be neglected. 
 
 Initial Configuration and Joint Parameters
 ===========================================
@@ -26,7 +27,7 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
 	:width: 400
 
 .. list-table:: 
-   :widths: 15 25 25 25 35 
+   :widths: 20 25 25 25 30
    :header-rows: 1
    :align: center 
 
@@ -46,7 +47,7 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, 1)
      - (0, 0, 0, 0, 0, 1)
 
-The details of each values and the related theoretical backgrounds are presented in this post.
+The details of each values and the related theoretical backgrounds are presented in the Theory posts.
 
 Example
 =========
@@ -54,19 +55,19 @@ To construct the cart-pole robot, simply run the following code:
 
 .. code-block:: MATLAB
 
-	% Geometric and Inertial Parameters of the cart-pole robot
-	mc = 1;		% The mass of the cart
-	lp = 1;		% The length of the pole 
-	mp = 1;		% The mass of the pole
+  % Geometric and Inertial Parameters of the cart-pole robot
+  mc = 1;		% The mass of the cart
+  mp = 1;		% The mass of the pole
+  lp = 1;		% The length of the pole 
 
-	% Construct the cart-pole robot and initialize
-	robot = CartPole( mc, lp, mp );
-	robot.init( )
-
-	% Attach the cart-pole robot to animation for visualization
-	anim = Animation( 'Dimension', 2, 'xLim', [-1.5,1.5], 'yLim', [-1.5,1.5]);
-	anim.init( )
-	anim.attachRobot( robot )
+  % Construct the cart-pole robot and initialize
+  robot = CartPole( mc, mp, lp );
+  robot.init( )
+  
+  % Attach the cart-pole robot to animation for visualization
+  anim = Animation( 'Dimension', 2, 'xLim', [-1.5,1.5], 'yLim', [-1.5,1.5]);
+  anim.init( )
+  anim.attachRobot( robot )
 
 .. figure:: ../images/cart_pole_result.png
 	:align: center

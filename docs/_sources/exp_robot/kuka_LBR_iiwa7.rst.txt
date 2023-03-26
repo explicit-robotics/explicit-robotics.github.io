@@ -9,7 +9,7 @@ We introduce `Kuka LBR iiwa7`_.
 Linkages of LBR iiwa7
 ==================================
 Kuka LBR iiwa7 has 7 degrees of freedom, with 7 linkages. 
-Note that LBR iiwa7 indicates the payload of the robot, rather than the degrees of freedom.
+Note that number in "LBR iiwa7" indicates the payload of the robot, rather than the degrees of freedom.
 The 7 linkages and the fixed basis of the robot is shown below:
 
 .. figure:: ../images/LBR_iiwa7_Linkage.png
@@ -19,7 +19,7 @@ The 7 linkages and the fixed basis of the robot is shown below:
 
 The Locations of Center of Mass 
 ==================================
-The Center of Mass locations of 7 links are depicted below.
+The Center of Mass locations of the 7 linkages are depicted below.
 
 .. figure:: ../images/LBR_iiwa7_COM.png
 	:align: center
@@ -27,7 +27,7 @@ The Center of Mass locations of 7 links are depicted below.
 
 
 .. list-table:: 
-   :widths: 30 30 15
+   :widths: 20 40 15
    :header-rows: 1
    :align: center 
    
@@ -56,6 +56,7 @@ The Center of Mass locations of 7 links are depicted below.
      - (0.000, 0.0001, 1.2306)
      - 0.4219
 
+Note that the Center of Mass locations are expressed with respect to frame :math:`\{S\}`.
 
 Initial Configuration and Joint Parameters
 ===========================================
@@ -117,15 +118,85 @@ The details of each values and the related theoretical backgrounds are presented
 
 Principal Axes and Principal Moment of Inertia 
 ================================================
-TBA
+The principal axes about the center of mass of each linkage are shown below.
+Note that the initial configuration of the robot is chosen to align the principal axes of inertia with the axes of frame :math:`\{S\}`.
+
+.. list-table:: 
+   :widths: 50 50 
+   :align: center 
+
+   * - .. figure:: ../images/iiwa7_linkage1.png
+          :width: 100%	
+
+     - .. figure:: ../images/iiwa7_linkage2.png
+          :width: 100%	
+
+.. list-table:: 
+   :widths: 50 50 
+   :align: center 
+
+   * - .. figure:: ../images/iiwa7_linkage3.png
+          :width: 100%	
+
+     - .. figure:: ../images/iiwa7_linkage4.png
+          :width: 100%	
+
+.. list-table:: 
+   :widths: 50 50 
+   :align: center 
+
+   * - .. figure:: ../images/iiwa7_linkage5.png
+          :width: 100%	
+
+     - .. figure:: ../images/iiwa7_linkage6.png
+          :width: 100%	
+
+.. list-table:: 
+   :widths: 50 50 
+   :align: center 
+
+   * - .. figure:: ../images/iiwa7_linkage7.png
+          :width: 100%	
+
+     - 
+
+
+.. list-table:: 
+   :widths: 20 40 
+   :header-rows: 1
+   :align: center 
+   
+   * - Linkage Number
+     - Principal Moments of Inertia, along :math:`\hat{e}_1`, :math:`\hat{e}_2`, :math:`\hat{e}_3`
+   * - Linkage 1
+     - (0.2400,  0.0240, 0.0128)
+   * - Linkage 2
+     - (0.0468,  0.0282, 0.0101)
+   * - Linkage 3
+     - (0.0200,  0.0200, 0.0600)
+   * - Linkage 4
+     - (0.0400,  0.0270, 0.0100)
+   * - Linkage 5
+     - (0.0190,  0.0160, 0.0120)
+   * - Linkage 6
+     - (0.0070,  0.0060, 0.0050)
+   * - Linkage 7
+     - (0.0003,  0.0003, 0.0005)     
 
 Example
 =========
-To construct the double-pendulum robot, simply run the following code:
+To construct Kuka LBR iiwa7, simply run the following code:
 
 .. code-block:: MATLAB
 
-	FILL_IN
+  % Construct Kuka object, with high visual quality
+  robot = iiwa7( 'quality', 'high' );
+  robot.init( );
+
+  % Set figure size and attach robot for visualization
+  anim = Animation( 'Dimension', 3, 'xLim', [-0.7,0.7], 'yLim', [-0.7,0.7], 'zLim', [0,1.4] );
+  anim.init( );
+  anim.attachRobot( robot )  
 
 .. figure:: ../images/LBR_iiwa7_result_view2.png
 	:align: center

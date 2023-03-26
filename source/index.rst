@@ -12,6 +12,7 @@ Welcome to EXPlicit documentation!
 
    exp_user/introduction
    exp_user/installation
+   exp_user/code_structure
 
 .. toctree::
    :maxdepth: 2
@@ -31,7 +32,6 @@ Welcome to EXPlicit documentation!
    :maxdepth: 2
    :caption: MATLAB Code Documentation
    
-   exp_MATLAB/code_structure
    exp_MATLAB/documentation   
 
 Indices and tables

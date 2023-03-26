@@ -1,10 +1,107 @@
-=======
-Franka
-=======
-The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
-.. If :math:`\sigma_{1}` equals :math:`\sigma_{2}` then etc, etc.
+==============
+Franka Emika
+==============
+
+We introduce `Franka Emika Robot`_. 
+
+.. _`Franka Emika Robot`: https://www.franka.de/
 
 
-Geometric and Inertial Parameters
+Linkages of Franka Emika
 ==================================
-FILL IN
+Franka Emika has 7 degrees of freedom, with 7 linkages. 
+The 7 linkages and the fixed basis of the robot is shown below.
+
+.. figure:: ../images/franka_linkage.png
+	:align: center
+	:width: 80%
+
+The Locations of Center of Mass 
+=================================
+The Center of Mass locations of the 7 linkages are depicted below.
+
+
+
+Initial Configuration and Joint Parameters
+===========================================
+The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
+
+.. figure:: ../images/franka_joint.png
+	:align: center
+	:width: 80%
+
+
+.. list-table:: 
+   :widths: 5 20 25 12 63
+   :header-rows: 1
+   :align: center 
+   
+
+   * - Joint
+     - Type 
+     - Point on Joint Twist Axis (m)
+     - Joint Direction
+     - Joint Twist 
+   * - J1
+     - Rev. (1)
+     - (0, 0, 0.3330)
+     - (0, 0, 1)
+     - (0, 0, 0, 0, 0, 1)
+   * - J2
+     - Rev. (1)
+     - (0, 0, 0.3330)
+     - (0, -1, 0)
+     - (0.333, 0, 0, 0, -1, 0)
+   * - J3
+     - Rev. (1)
+     - (0, 0, 0.6490)
+     - (0, 0, 1)
+     - (0, 0, 0, 0, 0, 1)
+   * - J4
+     - Rev. (1)
+     - (0.0825, 0, 0.6490)
+     - (0, 1, 0)
+     - (-0.649, 0, 0.0825, 0, 1, 0)
+   * - J5
+     - Rev. (1)
+     - (0, 0, 1.0330)
+     - (0, 0, 1)
+     - (0, 0, 0, 0, 0, 1)
+   * - J6
+     - Rev. (1)
+     - (0, 0, 1.0330)
+     - (0, 1, 0)
+     - (-1.0330, 0, 0, 0, 1, 0)	 
+   * - J7
+     - Rev. (1)
+     - (0.0880, 0, 1.0330)
+     - (0, 0, -1)
+     - (0, 0.0880, 0, 0, 0, -1)	 
+
+The details of each values and the related theoretical backgrounds are presented in this post.
+
+
+Principal Axes and Principal Moment of Inertia 
+================================================
+The principal axes about the center of mass of each linkage are shown below.
+Note that the initial configuration of the robot is chosen to align the principal axes of inertia with the axes of frame :math:`\{S\}`.
+
+
+Example
+=========
+To construct Franka Emika robot, simply run the following code:
+
+.. code-block:: MATLAB
+
+  % Construct Franka object, with high visual quality
+  robot = franka(  );
+  robot.init( );	
+
+  % Set figure size and attach robot for visualization
+  anim = Animation( 'Dimension', 3, 'xLim', [-0.7,0.7], 'yLim', [-0.7,0.7], 'zLim', [0,1.4] );
+  anim.init( );
+  anim.attachRobot( robot )
+
+.. figure:: ../images/franka_result.png
+	:align: center
+	:width: 600	  

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Franka &mdash; explicit-robotics v 1.0.0 documentation</title>
+  <title>Franka Emika &mdash; explicit-robotics v 1.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Code Structure" href="../exp_MATLAB/code_structure.html" /> 
+    <link rel="next" title="Code Documentations" href="../exp_MATLAB/documentation.html" />
+    <link rel="prev" title="Kuka LBR iiwa14" href="kuka_LBR_iiwa14.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,17 +45,25 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_user/code_structure.html">Code Structure</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../3D_robot.html">3D Planar Robots</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Franka</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#geometric-and-inertial-parameters">Geometric and Inertial Parameters</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kuka_LBR_iiwa7.html">Kuka LBR iiwa7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kuka_LBR_iiwa14.html">Kuka LBR iiwa14</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Franka Emika</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linkages-of-franka-emika">Linkages of Franka Emika</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-locations-of-center-of-mass">The Locations of Center of Mass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initial-configuration-and-joint-parameters">Initial Configuration and Joint Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#principal-axes-and-principal-moment-of-inertia">Principal Axes and Principal Moment of Inertia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -62,7 +71,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/code_structure.html">Code Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
 </ul>
 
@@ -80,8 +88,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../3D_robot.html">3D Planar Robots</a></li>
-      <li class="breadcrumb-item active">Franka</li>
+          <li class="breadcrumb-item"><a href="../3D_robot.html">3D Spatial Robots</a></li>
+      <li class="breadcrumb-item active">Franka Emika</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/exp_robot/franka.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,13 +99,111 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="franka">
-<h1>Franka<a class="headerlink" href="#franka" title="Permalink to this heading"></a></h1>
-<p>The theory of Product of Exponentials Formula starts with discussing the exponential mapping.
-.. If <span class="math notranslate nohighlight">\(\sigma_{1}\)</span> equals <span class="math notranslate nohighlight">\(\sigma_{2}\)</span> then etc, etc.</p>
-<section id="geometric-and-inertial-parameters">
-<h2>Geometric and Inertial Parameters<a class="headerlink" href="#geometric-and-inertial-parameters" title="Permalink to this heading"></a></h2>
-<p>FILL IN</p>
+  <section id="franka-emika">
+<h1>Franka Emika<a class="headerlink" href="#franka-emika" title="Permalink to this heading"></a></h1>
+<p>We introduce <a class="reference external" href="https://www.franka.de/">Franka Emika Robot</a>.</p>
+<section id="linkages-of-franka-emika">
+<h2>Linkages of Franka Emika<a class="headerlink" href="#linkages-of-franka-emika" title="Permalink to this heading"></a></h2>
+<p>Franka Emika has 7 degrees of freedom, with 7 linkages.
+The 7 linkages and the fixed basis of the robot is shown below.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/franka_linkage.png"><img alt="../_images/franka_linkage.png" src="../_images/franka_linkage.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="the-locations-of-center-of-mass">
+<h2>The Locations of Center of Mass<a class="headerlink" href="#the-locations-of-center-of-mass" title="Permalink to this heading"></a></h2>
+<p>The Center of Mass locations of the 7 linkages are depicted below.</p>
+</section>
+<section id="initial-configuration-and-joint-parameters">
+<h2>Initial Configuration and Joint Parameters<a class="headerlink" href="#initial-configuration-and-joint-parameters" title="Permalink to this heading"></a></h2>
+<p>The stationary coordinate frame <span class="math notranslate nohighlight">\(\{S\}\)</span>, the origin, the initial configuration and degrees of freedom of the robot:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/franka_joint.png"><img alt="../_images/franka_joint.png" src="../_images/franka_joint.png" style="width: 80%;" /></a>
+</figure>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 16%" />
+<col style="width: 20%" />
+<col style="width: 10%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Joint</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Point on Joint Twist Axis (m)</p></th>
+<th class="head"><p>Joint Direction</p></th>
+<th class="head"><p>Joint Twist</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>J1</p></td>
+<td><p>Rev. (1)</p></td>
+<td><p>(0, 0, 0.3330)</p></td>
+<td><p>(0, 0, 1)</p></td>
+<td><p>(0, 0, 0, 0, 0, 1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>J2</p></td>
+<td><p>Rev. (1)</p></td>
+<td><p>(0, 0, 0.3330)</p></td>
+<td><p>(0, -1, 0)</p></td>
+<td><p>(0.333, 0, 0, 0, -1, 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>J3</p></td>
+<td><p>Rev. (1)</p></td>
+<td><p>(0, 0, 0.6490)</p></td>
+<td><p>(0, 0, 1)</p></td>
+<td><p>(0, 0, 0, 0, 0, 1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>J4</p></td>
+<td><p>Rev. (1)</p></td>
+<td><p>(0.0825, 0, 0.6490)</p></td>
+<td><p>(0, 1, 0)</p></td>
+<td><p>(-0.649, 0, 0.0825, 0, 1, 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>J5</p></td>
+<td><p>Rev. (1)</p></td>
+<td><p>(0, 0, 1.0330)</p></td>
+<td><p>(0, 0, 1)</p></td>
+<td><p>(0, 0, 0, 0, 0, 1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>J6</p></td>
+<td><p>Rev. (1)</p></td>
+<td><p>(0, 0, 1.0330)</p></td>
+<td><p>(0, 1, 0)</p></td>
+<td><p>(-1.0330, 0, 0, 0, 1, 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>J7</p></td>
+<td><p>Rev. (1)</p></td>
+<td><p>(0.0880, 0, 1.0330)</p></td>
+<td><p>(0, 0, -1)</p></td>
+<td><p>(0, 0.0880, 0, 0, 0, -1)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The details of each values and the related theoretical backgrounds are presented in this post.</p>
+</section>
+<section id="principal-axes-and-principal-moment-of-inertia">
+<h2>Principal Axes and Principal Moment of Inertia<a class="headerlink" href="#principal-axes-and-principal-moment-of-inertia" title="Permalink to this heading"></a></h2>
+<p>The principal axes about the center of mass of each linkage are shown below.
+Note that the initial configuration of the robot is chosen to align the principal axes of inertia with the axes of frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<p>To construct Franka Emika robot, simply run the following code:</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Construct Franka object, with high visual quality</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w">  </span><span class="p">);</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+
+<span class="c">% Set figure size and attach robot for visualization</span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/franka_result.png"><img alt="../_images/franka_result.png" src="../_images/franka_result.png" style="width: 600px;" /></a>
+</figure>
 </section>
 </section>
 
@@ -105,7 +211,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../exp_MATLAB/code_structure.html" class="btn btn-neutral float-right" title="Code Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="kuka_LBR_iiwa14.html" class="btn btn-neutral float-left" title="Kuka LBR iiwa14" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../exp_MATLAB/documentation.html" class="btn btn-neutral float-right" title="Code Documentations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -20,15 +20,17 @@ release = 'v 1.0.0'
 # Although annoying, we need to include the "absolute path of the explicit-MATLAB"
 matlab_src_dir = '/Users/mosesnah/Documents/GitHub/Explicit-MATLAB'
 
-extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc'  ]
+extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinxcontrib.napoleon' ]
+
+napoleon_numpy_docstring = True
+# [REF] https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
+# [REF] https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy
 
 # templates_path = ['_templates']
 # exclude_patterns = []
 primary_domain = 'mat'
 
 add_module_names = False
-
-
 
  
 # -- Options for HTML output -------------------------------------------------

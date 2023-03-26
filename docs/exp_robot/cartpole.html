@@ -45,6 +45,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_user/code_structure.html">Code Structure</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
 <ul>
@@ -69,7 +70,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/code_structure.html">Code Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
 </ul>
 
@@ -100,8 +100,7 @@
              
   <section id="cart-pole">
 <h1>Cart-Pole<a class="headerlink" href="#cart-pole" title="Permalink to this heading"></a></h1>
-<p>In this simulation, we simulate a planar 2-DOF cart-pole robot.
-The file is contained in robots directory.</p>
+<p>Cart-Pole robot is one of the examples often used in robotics.</p>
 <section id="geometric-and-inertial-parameters">
 <h2>Geometric and Inertial Parameters<a class="headerlink" href="#geometric-and-inertial-parameters" title="Permalink to this heading"></a></h2>
 <p>The cart-pole system consists of:</p>
@@ -112,6 +111,8 @@ The file is contained in robots directory.</p>
 <li><p>A cart with point mass <span class="math notranslate nohighlight">\(m_c\)</span>, depicted in orange square.</p></li>
 <li><p>A pole with length <span class="math notranslate nohighlight">\(l_p\)</span>, with point mass <span class="math notranslate nohighlight">\(m_p\)</span> attached to the end of the pole. The point mass <span class="math notranslate nohighlight">\(m_p\)</span> is depicted in black circle.</p></li>
 </ul>
+<p>Note that the system consists of point masses, i.e., the center of mass of each link is identical to the position of the mass.
+Moreover, the moment of inertia about the center of mass can be neglected.</p>
 </section>
 <section id="initial-configuration-and-joint-parameters">
 <h2>Initial Configuration and Joint Parameters<a class="headerlink" href="#initial-configuration-and-joint-parameters" title="Permalink to this heading"></a></h2>
@@ -121,11 +122,11 @@ The file is contained in robots directory.</p>
 </figure>
 <table class="docutils align-center">
 <colgroup>
-<col style="width: 12%" />
+<col style="width: 16%" />
 <col style="width: 20%" />
 <col style="width: 20%" />
 <col style="width: 20%" />
-<col style="width: 28%" />
+<col style="width: 24%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Joint</p></th>
@@ -150,18 +151,18 @@ The file is contained in robots directory.</p>
 </tr>
 </tbody>
 </table>
-<p>The details of each values and the related theoretical backgrounds are presented in this post.</p>
+<p>The details of each values and the related theoretical backgrounds are presented in the Theory posts.</p>
 </section>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>To construct the cart-pole robot, simply run the following code:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of the cart-pole robot</span>
-<span class="n">mc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The mass of the cart</span>
-<span class="n">lp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the pole</span>
-<span class="n">mp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The mass of the pole</span>
+<span class="n">mc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the cart</span>
+<span class="n">mp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the pole</span>
+<span class="n">lp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The length of the pole</span>
 
 <span class="c">% Construct the cart-pole robot and initialize</span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">CartPole</span><span class="p">(</span><span class="w"> </span><span class="n">mc</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">,</span><span class="w"> </span><span class="n">mp</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">CartPole</span><span class="p">(</span><span class="w"> </span><span class="n">mc</span><span class="p">,</span><span class="w"> </span><span class="n">mp</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="p">);</span>
 <span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
 
 <span class="c">% Attach the cart-pole robot to animation for visualization</span>
@@ -178,17 +179,21 @@ The file is contained in robots directory.</p>
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="robots.CartPole">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CartPole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mc</span></em>, <em class="sig-param"><span class="pre">lp</span></em>, <em class="sig-param"><span class="pre">mp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#robots.CartPole" title="Permalink to this definition"></a></dt>
-<dd><p>Constructs a planar 2-DOF Cart-pole robot.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CartPole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mc</span></em>, <em class="sig-param"><span class="pre">mp</span></em>, <em class="sig-param"><span class="pre">lp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#robots.CartPole" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs a planar 2-DOF CartPole robot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mc</strong> – The mass (kg) of the cart.</p></li>
-<li><p><strong>lp</strong> – The length (m) of the pole.</p></li>
-<li><p><strong>mp</strong> – The mass (kg) of the point mass attached to the pole.</p></li>
+<li><p><strong>mc</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The mass (kg) of the cart.</p></li>
+<li><p><strong>mp</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The mass (kg) of the point mass suspended at the pole.</p></li>
+<li><p><strong>lp</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The length (m) of the pole.</p></li>
 </ul>
 </dd>
 </dl>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p><cite>mc</cite>, <cite>mp</cite>, <cite>lp</cite> must be positive values</p>
+</div>
 </dd></dl>
 
 </section>

@@ -3,8 +3,6 @@ Double Pendulum
 ===============
 
 Double pendulum robot, also known as Acrobot, is one of the examples often used in robotics. 
-In this simulation, we simulate a planar 2-DOF double pendulum robot.
-The file contained in robots directory. 
 
 Geometric and Inertial Parameters
 ==================================
@@ -49,7 +47,7 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, 1)
      - (:math:`-l_1`, 0, 0, 0, 0, 1)
 
-The details of each values and the related theoretical backgrounds are presented in this post.
+The details of each values and the related theoretical backgrounds are presented in the Theory posts.
 
 Example
 =========
@@ -59,12 +57,12 @@ To construct the double-pendulum robot, simply run the following code:
 
 	% Geometric and Inertial Parameters of the double pendulum robot
 	m1 = 1;		% The   mass of the  first link
-	l1 = 1;		% The length of the  first link
 	m2 = 1;		% The   mass of the second link
+	l1 = 1;		% The length of the  first link
 	l2 = 1;		% The length of the second link
 
-	% Construct the cart-pole robot and initialize
-	robot = DoublePendulum( m1, l1, m2, l2 );
+	% Construct the double-pendulum robot and initialize
+	robot = DoublePendulum( m1, m2, l1, l2 );
 	robot.init( )
 
 	% Attach the double-pendulum robot to animation for visualization
