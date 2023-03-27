@@ -190,7 +190,7 @@ To construct Kuka LBR iiwa14, simply run the following code:
 .. code-block:: MATLAB
 
   % Construct Kuka object, with high visual quality
-  robot = iiwa14( 'quality', 'high' );
+  robot = iiwa14( 'high' );
   robot.init( );
 
   % Set figure size and attach robot for visualization

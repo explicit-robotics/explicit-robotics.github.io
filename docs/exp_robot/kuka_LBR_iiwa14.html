@@ -73,6 +73,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Others</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_others/franka_derivation.html">Derivation of franka’s Inertia Parameters</a></li>
+</ul>
 
         </div>
       </div>
@@ -338,7 +342,7 @@ Note that the initial configuration of the robot is chosen to align the principa
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>To construct Kuka LBR iiwa14, simply run the following code:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Construct Kuka object, with high visual quality</span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;quality&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;high&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;high&#39;</span><span class="w"> </span><span class="p">);</span>
 <span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c">% Set figure size and attach robot for visualization</span>

@@ -34,6 +34,12 @@ Welcome to EXPlicit documentation!
    
    exp_MATLAB/documentation   
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Others
+   
+   exp_others/franka_derivation
+
 Indices and tables
 ==================
 
