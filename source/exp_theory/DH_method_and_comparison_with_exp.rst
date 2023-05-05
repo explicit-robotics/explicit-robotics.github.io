@@ -1,14 +1,16 @@
 ================================
 Denavit-Hartenberg Parameters
 ================================
-The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
-Consider the following equation:
+
+UNDER CONSTRUCTION ...
+..The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
+..Consider the following equation:
 
 .. math::
-	\mathbf{p}(t) = 
+..	\mathbf{p}(t) = 
 
-Moreover, 
+..Moreover, 
 
 .. math::
-	{}^{S}H_{ee} = \exp(\eta)
+..	{}^{S}H_{ee} = \exp(\eta)
 
