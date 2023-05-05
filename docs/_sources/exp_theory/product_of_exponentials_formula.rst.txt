@@ -1,14 +1,17 @@
 ================================
 Product of Exponentials Formula
 ================================
-..The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
-..Consider the following equation:
 
-.. math::
-..	\mathbf{p}(t) = 
+Currently under construction ...
+..
+	The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
+	Consider the following equation:
 
-..Moreover, 
+	.. math::
+	\mathbf{p}(t) = 
 
-.. math::
-..	{}^{S}H_{ee} = \exp(\eta)
+	Moreover, 
+
+	.. math::
+	{}^{S}H_{ee} = \exp(\eta)
 
