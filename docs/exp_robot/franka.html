@@ -18,7 +18,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Code Documentations" href="../exp_MATLAB/documentation.html" />
+    <link rel="next" title="Derivation of Franka’s Inertia Parameters" href="../exp_others/franka_derivation.html" />
     <link rel="prev" title="3D Spatial Robots" href="../3D_robot.html" /> 
 </head>
 
@@ -49,6 +49,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
@@ -56,23 +57,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Franka Emika</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#linkages-of-franka-emika">Linkages of Franka Emika</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-locations-of-center-of-mass">The Locations of Center of Mass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-locations-of-center-of-mass-com">The Locations of Center of Mass (CoM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initial-configuration-and-joint-parameters">Initial Configuration and Joint Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#inertia-tensor-of-each-linkage">Inertia Tensor of each Linkage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-code">Example code</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_others/franka_derivation.html">Derivation of franka’s Inertia Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_others/franka_derivation.html">Derivation of Franka’s Inertia Parameters</a></li>
 </ul>
 
         </div>
@@ -102,18 +98,14 @@
              
   <section id="franka-emika">
 <h1>Franka Emika<a class="headerlink" href="#franka-emika" title="Permalink to this heading"></a></h1>
-<p>We introduce <a class="reference external" href="https://www.franka.de/">Franka Emika Robot</a>.</p>
-<section id="linkages-of-franka-emika">
-<h2>Linkages of Franka Emika<a class="headerlink" href="#linkages-of-franka-emika" title="Permalink to this heading"></a></h2>
-<p>Franka Emika has 7 degrees of freedom, with 7 linkages.
-The 7 linkages and the fixed basis of the robot is shown below.</p>
+<p>The <a class="reference external" href="https://www.franka.de/">Franka Emika Robot</a> is a kinematically redundant robot with 7 DOF.
+The links and the fixed base of the robot are shown below.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/franka_linkage.png"><img alt="../_images/franka_linkage.png" src="../_images/franka_linkage.png" style="width: 80%;" /></a>
 </figure>
-</section>
-<section id="the-locations-of-center-of-mass">
-<h2>The Locations of Center of Mass<a class="headerlink" href="#the-locations-of-center-of-mass" title="Permalink to this heading"></a></h2>
-<p>The Center of Mass locations of the 7 linkages are depicted below.</p>
+<section id="the-locations-of-center-of-mass-com">
+<h2>The Locations of Center of Mass (CoM)<a class="headerlink" href="#the-locations-of-center-of-mass-com" title="Permalink to this heading"></a></h2>
+<p>The CoM locations of the 7 links are depicted below.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/franka_linkages_w_COM.png"><img alt="../_images/franka_linkages_w_COM.png" src="../_images/franka_linkages_w_COM.png" style="width: 90%;" /></a>
 </figure>
@@ -160,13 +152,14 @@ The 7 linkages and the fixed basis of the robot is shown below.</p>
 </tr>
 </tbody>
 </table>
-<p>Note that the Center of Mass locations are expressed with respect to frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
-The values are derived from Figure 4 of <a class="reference external" href="https://ieeexplore.ieee.org/document/9561425">this great reference</a>.
+<p>Note that the CoM locations are all expressed with respect to frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
+The values are derived from Figure 4 in <a class="reference external" href="https://ieeexplore.ieee.org/document/9561425">this reference</a>.
 The detailed derivation of these values are shown in <a class="reference external" href="../exp_others/franka_derivation.html">this post</a>.</p>
 </section>
 <section id="initial-configuration-and-joint-parameters">
 <h2>Initial Configuration and Joint Parameters<a class="headerlink" href="#initial-configuration-and-joint-parameters" title="Permalink to this heading"></a></h2>
-<p>The stationary coordinate frame <span class="math notranslate nohighlight">\(\{S\}\)</span>, the origin, the initial configuration and degrees of freedom of the robot:</p>
+<p>Below, the robot in initial configuration with stationary coordinate frame <span class="math notranslate nohighlight">\(\{S\}\)</span> and origin <span class="math notranslate nohighlight">\(\{O\}\)</span>
+is shown:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/franka_joint.png"><img alt="../_images/franka_joint.png" src="../_images/franka_joint.png" style="width: 80%;" /></a>
 </figure>
@@ -231,11 +224,12 @@ The detailed derivation of these values are shown in <a class="reference externa
 </tr>
 </tbody>
 </table>
-<p>Rev. stands for revolute joint. The details of each values and the related theoretical backgrounds are presented in this post.</p>
+<p>Here, “Rev.”” stands for revolute joint.</p>
 </section>
 <section id="inertia-tensor-of-each-linkage">
 <h2>Inertia Tensor of each Linkage<a class="headerlink" href="#inertia-tensor-of-each-linkage" title="Permalink to this heading"></a></h2>
-<p>Given axes <span class="math notranslate nohighlight">\(\hat{e}_x\)</span>, <span class="math notranslate nohighlight">\(\hat{e}_y\)</span>, <span class="math notranslate nohighlight">\(\hat{e}_z\)</span>, the inertia matrix of the i-th linkage about the center of mass, <span class="math notranslate nohighlight">\(I_i\)</span> is shown below:</p>
+<p>Given axes <span class="math notranslate nohighlight">\(\hat{e}_x\)</span>, <span class="math notranslate nohighlight">\(\hat{e}_y\)</span>, <span class="math notranslate nohighlight">\(\hat{e}_z\)</span>, the inertia matrices of the
+links about the CoM, <span class="math notranslate nohighlight">\(I_i\)</span> are shown below:</p>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 50%" />
@@ -376,25 +370,27 @@ The detailed derivation of these values are shown in <a class="reference externa
 </tr>
 </tbody>
 </table>
-<p>The values are derived from Figure 4 of <a class="reference external" href="https://ieeexplore.ieee.org/document/9561425">this great reference</a>.
+<p>The values are derived from Figure 4 of <a class="reference external" href="https://ieeexplore.ieee.org/document/9561425">this reference</a>.
 The detailed derivation of these values are shown in <a class="reference external" href="../exp_others/franka_derivation.html">this post</a>.</p>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
-<p>To construct Franka Emika robot, simply run the following code:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Construct Franka object, with high visual quality</span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w">  </span><span class="p">);</span>
-<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<section id="example-code">
+<h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this heading"></a></h2>
+<p>To construct a Franka robot, run the following code:</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Construct Franka object, with high visual quality</span><span class="w"></span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 
-<span class="c">% Set figure size and attach robot for visualization</span>
-<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
-<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
-<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
+<span class="c">% Set figure size and attach robot for visualization</span><span class="w"></span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
+<p>The output figure should look like this:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/franka_result.png"><img alt="../_images/franka_result.png" src="../_images/franka_result.png" style="width: 600px;" /></a>
 </figure>
+<p>An example application for the Franka robot can be found under <cite>/examples/main_franka.m</cite>.</p>
 </section>
 </section>
 
@@ -403,7 +399,7 @@ The detailed derivation of these values are shown in <a class="reference externa
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../3D_robot.html" class="btn btn-neutral float-left" title="3D Spatial Robots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../exp_MATLAB/documentation.html" class="btn btn-neutral float-right" title="Code Documentations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../exp_others/franka_derivation.html" class="btn btn-neutral float-right" title="Derivation of Franka’s Inertia Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

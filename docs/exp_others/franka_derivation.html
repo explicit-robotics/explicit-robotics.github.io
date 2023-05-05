@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Derivation of franka’s Inertia Parameters &mdash; explicit-robotics v 1.0.0 documentation</title>
+  <title>Derivation of Franka’s Inertia Parameters &mdash; explicit-robotics v 1.0.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Code Documentations" href="../exp_MATLAB/documentation.html" /> 
+    <link rel="prev" title="Franka Emika" href="../exp_robot/franka.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,6 +48,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
@@ -55,13 +56,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Derivation of franka’s Inertia Parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Derivation of Franka’s Inertia Parameters</a></li>
 </ul>
 
         </div>
@@ -78,7 +75,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Derivation of franka’s Inertia Parameters</li>
+      <li class="breadcrumb-item active">Derivation of Franka’s Inertia Parameters</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/exp_others/franka_derivation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,8 +86,7 @@
            <div itemprop="articleBody">
              
   <section id="derivation-of-franka-s-inertia-parameters">
-<h1>Derivation of franka’s Inertia Parameters<a class="headerlink" href="#derivation-of-franka-s-inertia-parameters" title="Permalink to this heading"></a></h1>
-<p>In this post, we show the detailed derivation of the <a class="reference external" href="../exp_robot/franka.html">inertial parameters of franka</a>.</p>
+<h1>Derivation of Franka’s Inertia Parameters<a class="headerlink" href="#derivation-of-franka-s-inertia-parameters" title="Permalink to this heading"></a></h1>
 <p>The original values are derived from Figure 4 of the paper from <a class="reference external" href="https://ieeexplore.ieee.org/document/9561425">Ledezma, Fernando Diaz and Haddadin, Sami</a>.
 For the <span class="math notranslate nohighlight">\(i\)</span>-th link, the mass <span class="math notranslate nohighlight">\(m\)</span>, mass times the center of mass location <span class="math notranslate nohighlight">\(mc_x\)</span>, <span class="math notranslate nohighlight">\(mc_y\)</span>, <span class="math notranslate nohighlight">\(mc_z\)</span>, and the 6 paramters of the inertia tensor matrix,
 <span class="math notranslate nohighlight">\(I_{xx}\)</span>, <span class="math notranslate nohighlight">\(I_{xy}\)</span>, <span class="math notranslate nohighlight">\(I_{xz}\)</span>, <span class="math notranslate nohighlight">\(I_{yy}\)</span>, <span class="math notranslate nohighlight">\(I_{yz}\)</span>, <span class="math notranslate nohighlight">\(I_{zz}\)</span> about the center of mass are:</p>
@@ -146,9 +142,9 @@ For the <span class="math notranslate nohighlight">\(i\)</span>-th link, the mas
 </tr>
 </tbody>
 </table>
-<p>The inertial parameters of the <span class="math notranslate nohighlight">\(i\)</span>-th link are described with respect to the frame at the <span class="math notranslate nohighlight">\(i\)</span>-th joint.
+<p>The inertial parameters of the <span class="math notranslate nohighlight">\(i\)</span>-th link are described with respect to the frame on the <span class="math notranslate nohighlight">\(i\)</span>-th joint.
 This frame is defined by the Denavit–Hartenberg (DH) parameters.
-The DH parameters of the 7 frames attached to the 7 joints are listed in <a class="reference external" href="https://frankaemika.github.io/docs/control_parameters.html#denavithartenberg-parameters">this website</a>, and shown below:</p>
+The DH parameters for the Franka can be found on <a class="reference external" href="https://frankaemika.github.io/docs/control_parameters.html#denavithartenberg-parameters">this website</a> and are shown below:</p>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 24%" />
@@ -219,9 +215,9 @@ For <span class="math notranslate nohighlight">\(i=1,2,\cdots, 7\)</span>, the r
                                         \sin \theta_i \sin \alpha_i &amp; \cos\theta_i \sin \alpha_i &amp;  \cos\alpha_i &amp;  d_i\cos\alpha_i \\
                                                                                           0 &amp;                                              0 &amp;                     0 &amp;                       1
                                 \end{bmatrix}\end{split}\]</div>
-<p>Subscript <span class="math notranslate nohighlight">\(i\)</span> denotes the DH parameter of Joint <span class="math notranslate nohighlight">\(i\)</span>.
-Moreover, frame <span class="math notranslate nohighlight">\(\{0\}\)</span> is simply the fixed frame <span class="math notranslate nohighlight">\(\{S\}\)</span> attached at the origin.</p>
-<p>From this, we can find the frame attached at the <span class="math notranslate nohighlight">\(i\)</span>-th joint by simple matrix computation:</p>
+<p>Subscript <span class="math notranslate nohighlight">\(i\)</span> denotes the DH parameter of joint <span class="math notranslate nohighlight">\(i\)</span>.
+Moreover, frame <span class="math notranslate nohighlight">\(\{0\}\)</span> is equal to the fixed frame <span class="math notranslate nohighlight">\(\{S\}\)</span> attached at the origin.</p>
+<p>From this, we can find the frame attached at the <span class="math notranslate nohighlight">\(i\)</span>-th joint by matrix concatenation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
         {}^{S}H_{1} &amp;= {}^{S}H_{1} \\
@@ -230,16 +226,16 @@ Moreover, frame <span class="math notranslate nohighlight">\(\{0\}\)</span> is s
                 &amp; ~~~~~~~ \vdots \\
         {}^{S}H_{7} &amp;= {}^{S}H_{1} {}^{1}H_{2}{}^{2}H_{3} {}^{3}H_{4}{}^{4}H_{5}{}^{5}H_{6}{}^{6}H_{7} \\
 \end{align}\end{split}\]</div>
-<p>The result plotted in explicit (right) is consistent with the result shown from the <a class="reference external" href="https://frankaemika.github.io/docs/control_parameters.html#denavithartenberg-parameters">original franka website</a> (left).</p>
+<p>The result plotted in <em>Exp[licit]</em> (right) is consistent with the result shown from the <a class="reference external" href="https://frankaemika.github.io/docs/control_parameters.html#denavithartenberg-parameters">franka website</a> (left).</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/franka_original_explicit.png"><img alt="../_images/franka_original_explicit.png" src="../_images/franka_original_explicit.png" style="width: 80%;" /></a>
 </figure>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Let the center of mass location of the <span class="math notranslate nohighlight">\(i\)</span>-th link expressed in frame <span class="math notranslate nohighlight">\(\{i\}\)</span> be denoted as <span class="math notranslate nohighlight">\({}^{i}\mathbf{c}_i := [{}^{i}c_{x,i},{}^{i}c_{y,i},{}^{i}c_{z,i}]\)</span>,
-and the values are shown in the table above.
-We simply need to map these values from frame <span class="math notranslate nohighlight">\(\{i\}\)</span> to frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
+<p>Let the CoM location of the <span class="math notranslate nohighlight">\(i\)</span>-th link, expressed in frame <span class="math notranslate nohighlight">\(\{i\}\)</span>, be denoted as <span class="math notranslate nohighlight">\({}^{i}\mathbf{c}_i := [{}^{i}c_{x,i},{}^{i}c_{y,i},{}^{i}c_{z,i}]\)</span>,
+(shown in the table above).
+We need to map these values from frame <span class="math notranslate nohighlight">\(\{i\}\)</span> to frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
 Thus, for <span class="math notranslate nohighlight">\(i=1,2,\cdots,7\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix}
@@ -249,11 +245,11 @@ Thus, for <span class="math notranslate nohighlight">\(i=1,2,\cdots,7\)</span>:<
 \begin{bmatrix}
         {}^{i}\mathbf{c}_i \\ 1
 \end{bmatrix}\end{split}\]</div>
-<p>From this, we find the position of the center of mass, expressed in frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
+<p>From this, we find the position of the CoM, expressed in frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
 The detailed location and its values are posted in <a class="reference external" href="../exp_robot/franka.html#the-locations-of-center-of-mass">this section</a>.</p>
-<p>Finally, we derive the moment of inertia matrix, but with respect to the axes of frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
-Let the moment of inertia matrix about frame <span class="math notranslate nohighlight">\(\{i\}\)</span> be <span class="math notranslate nohighlight">\({}^{i}\mathbf{I}_i\)</span>
-Considering that the moment of inertia matrix is a (0,2)-tensor, it is clear that the moment of inertia with respect to frame <span class="math notranslate nohighlight">\(\{S\}\)</span> is:</p>
+<p>Finally, we derive the moment of inertia, but with respect to the axes of frame <span class="math notranslate nohighlight">\(\{S\}\)</span>.
+Let the moment of inertia about frame <span class="math notranslate nohighlight">\(\{i\}\)</span> be represented by matrix <span class="math notranslate nohighlight">\({}^{i}\mathbf{I}_i\)</span>.
+To express with respect to frame <span class="math notranslate nohighlight">\(\{S\}\)</span> we use the following mapping:</p>
 <div class="math notranslate nohighlight">
 \[{}^{S}\mathbf{I}_i = {}^{S}\mathbf{R}_i ~ {}^{i}\mathbf{I}_i ~ {}^{S}\mathbf{R}_i^{\text{T}}\]</div>
 <p>In this equation <span class="math notranslate nohighlight">\({}^{S}\mathbf{R}_i\in SO(3)\)</span>, which can be derived from <span class="math notranslate nohighlight">\({}^{S}\mathbf{H}_i\)</span>.
@@ -264,7 +260,7 @@ This eventually gives us the inertia matrix <a class="reference external" href="
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../exp_MATLAB/documentation.html" class="btn btn-neutral float-left" title="Code Documentations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../exp_robot/franka.html" class="btn btn-neutral float-left" title="Franka Emika" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -56,10 +56,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Cart-Pole</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#geometric-and-inertial-parameters">Geometric and Inertial Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initial-configuration-and-joint-parameters">Initial Configuration and Joint Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-code">Example code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doublependulum.html">Double Pendulum</a></li>
@@ -67,10 +65,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
@@ -104,23 +98,20 @@
              
   <section id="cart-pole">
 <h1>Cart-Pole<a class="headerlink" href="#cart-pole" title="Permalink to this heading"></a></h1>
-<p>Cart-Pole robot is one of the examples often used in robotics.</p>
-<section id="geometric-and-inertial-parameters">
-<h2>Geometric and Inertial Parameters<a class="headerlink" href="#geometric-and-inertial-parameters" title="Permalink to this heading"></a></h2>
-<p>The cart-pole system consists of:</p>
+<p>Cart-Pole robot is one frequently used example in academia. The geometric and inertial parameters are shown below:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/cart_pole_inertia.png"><img alt="../_images/cart_pole_inertia.png" src="../_images/cart_pole_inertia.png" style="width: 400px;" /></a>
 </figure>
 <ul class="simple">
-<li><p>A cart with point mass <span class="math notranslate nohighlight">\(m_c\)</span>, depicted in orange square.</p></li>
-<li><p>A pole with length <span class="math notranslate nohighlight">\(l_p\)</span>, with point mass <span class="math notranslate nohighlight">\(m_p\)</span> attached to the end of the pole. The point mass <span class="math notranslate nohighlight">\(m_p\)</span> is depicted in black circle.</p></li>
+<li><p>A cart with point mass <span class="math notranslate nohighlight">\(m_c\)</span>.</p></li>
+<li><p>A pole with length <span class="math notranslate nohighlight">\(l_p\)</span> and point mass <span class="math notranslate nohighlight">\(m_p\)</span> attached to the end of the pole.</p></li>
 </ul>
 <p>Note that the system consists of point masses, i.e., the center of mass of each link is identical to the position of the mass.
 Moreover, the moment of inertia about the center of mass can be neglected.</p>
-</section>
 <section id="initial-configuration-and-joint-parameters">
 <h2>Initial Configuration and Joint Parameters<a class="headerlink" href="#initial-configuration-and-joint-parameters" title="Permalink to this heading"></a></h2>
-<p>The stationary coordinate frame <span class="math notranslate nohighlight">\(\{S\}\)</span>, the origin, the initial configuration and degrees of freedom of the robot:</p>
+<p>Below, the robot in initial configuration with stationary coordinate frame <span class="math notranslate nohighlight">\(\{S\}\)</span> and origin <span class="math notranslate nohighlight">\(\{O\}\)</span>
+is shown:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/cart_pole_joint.png"><img alt="../_images/cart_pole_joint.png" src="../_images/cart_pole_joint.png" style="width: 400px;" /></a>
 </figure>
@@ -155,11 +146,10 @@ Moreover, the moment of inertia about the center of mass can be neglected.</p>
 </tr>
 </tbody>
 </table>
-<p>The details of each values and the related theoretical backgrounds are presented in the Theory posts.</p>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
-<p>To construct the cart-pole robot, simply run the following code:</p>
+<section id="example-code">
+<h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this heading"></a></h2>
+<p>To construct the cart-pole robot, run the following code:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of the cart-pole robot</span><span class="w"></span>
 <span class="n">mc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the cart</span><span class="w"></span>
 <span class="n">mp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the pole</span><span class="w"></span>
@@ -175,31 +165,10 @@ Moreover, the moment of inertia about the center of mass can be neglected.</p>
 <span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
+<p>The output figure should look like this:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/cart_pole_result.png"><img alt="../_images/cart_pole_result.png" src="../_images/cart_pole_result.png" style="width: 400px;" /></a>
 </figure>
-</section>
-<section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
-<dl class="mat class">
-<dt class="sig sig-object mat" id="robots.CartPole">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CartPole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mc</span></em>, <em class="sig-param"><span class="pre">mp</span></em>, <em class="sig-param"><span class="pre">lp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#robots.CartPole" title="Permalink to this definition"></a></dt>
-<dd><p>Constructs a planar 2-DOF CartPole robot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mc</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The mass (kg) of the cart.</p></li>
-<li><p><strong>mp</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The mass (kg) of the point mass suspended at the pole.</p></li>
-<li><p><strong>lp</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span></code></span>) – The length (m) of the pole.</p></li>
-</ul>
-</dd>
-</dl>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<p><cite>mc</cite>, <cite>mp</cite>, <cite>lp</cite> must be positive values</p>
-</div>
-</dd></dl>
-
 </section>
 </section>
 

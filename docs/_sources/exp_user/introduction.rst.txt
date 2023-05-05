@@ -3,18 +3,14 @@ Introduction
 ============
 
 Welcome to *Exp[licit]*-robotics! Our software can be used to model and simulate a variety of robots. The algorithms behind the software
-are based on the Product of Exponentials Formula.
+are based on the Differential Geometric concept, called *Product of Exponentials Formula*.
 
-|
 
-The software is created and maintained by `Moses C. Nah`_ and `Johannes Lachner`_, two researchers from the Newman Lab at MIT.
-Our passion for Differential Geometry motivated us to develope this software.
+The software is created and maintained by `Moses C. Nah`_ and `Johannes Lachner`_, two researchers from the Newman Lab at 
+the Massachusetts Institute of Technology (MIT). 
+Currently, *Exp[licit]-MATLAB* is available and can be installed from our `Github repository`_. Explicit-cpp and Explicit-py 
+will be published soon.
 
-|
-
-Currently, *Exp[licit]-MATLAB* can be installed from our `Github repository`_. Explicit-c++ and Explicit-py will be available soon.
-
-|
 
 .. list-table::
 
@@ -25,9 +21,6 @@ Currently, *Exp[licit]-MATLAB* can be installed from our `Github repository`_. E
 				:width: 100%	
 
 .. list-table::
-
-	* - 
-	  -
 
 
 

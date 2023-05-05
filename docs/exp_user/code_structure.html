@@ -17,7 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Product of Exponentials Formula" href="../exp_theory/product_of_exponentials_formula.html" />
+    <link rel="next" title="Denavit-Hartenberg Parameters" href="../exp_theory/DH_method_and_comparison_with_exp.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
@@ -44,10 +44,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Structure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-application-for-exp-licit-matlab">Example Application for <em>Exp[licit]-MATLAB</em></a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
@@ -55,13 +59,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_others/franka_derivation.html">Derivation of franka’s Inertia Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_others/franka_derivation.html">Derivation of Franka’s Inertia Parameters</a></li>
 </ul>
 
         </div>
@@ -89,18 +89,62 @@
            <div itemprop="articleBody">
              
   <section id="code-structure">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Code Structure</a><a class="headerlink" href="#code-structure" title="Permalink to this heading"></a></h1>
-<nav class="contents" id="table-of-contents">
-<p class="topic-title">Table of Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#code-structure" id="id1">Code Structure</a></p></li>
-</ul>
-</nav>
-<p>We explain the code structure of Explicit. We use Explicit-MATLAB for the explanation, but the concept is identical to Explicit-C++ and Explicit-py.</p>
-<p>To define the kinematics of the robot (without graphics), we need to define the following parameters.</p>
-<ul class="simple">
-<li><p>JointOrigin</p></li>
-</ul>
+<h1>Code Structure<a class="headerlink" href="#code-structure" title="Permalink to this heading"></a></h1>
+<p>The core of the software is the <code class="xref mat mat-class docutils literal notranslate"><span class="pre">RobotPrimitives</span></code>-class, which is used as the parent class of the software.
+It provides the member functions, e.g., <code class="xref mat mat-func docutils literal notranslate"><span class="pre">getForwardKinematics()</span></code>, <code class="xref mat mat-func docutils literal notranslate"><span class="pre">getSpatialJacobian()</span></code>, <code class="xref mat mat-func docutils literal notranslate"><span class="pre">getHybridJacobian()</span></code>, <code class="xref mat mat-func docutils literal notranslate"><span class="pre">getBodyJacobian()</span></code>, <code class="xref mat mat-func docutils literal notranslate"><span class="pre">getMassMatrix()</span></code> for deriving the robot parameters.
+By inheriting the <code class="xref mat mat-class docutils literal notranslate"><span class="pre">RobotPrimitives</span></code>-class, a new robot class can be defined that shares the attributes and the member functions
+of the parent class.</p>
+<p>Each robot class brings its kinematic and dynamic properties (e.g., axes of rotation, link lengths, masses, etc.).
+Note that for <em>Exp[licit]-MATLAB</em>, all member functions also accept symbolic arguments. This feature is helpful for control methods that require an analytical
+formulation of the robot’s equations of motion, e.g., adaptive control methods.</p>
+<section id="example-application-for-exp-licit-matlab">
+<h2>Example Application for <em>Exp[licit]-MATLAB</em><a class="headerlink" href="#example-application-for-exp-licit-matlab" title="Permalink to this heading"></a></h2>
+<p>While <em>Exp[licit]-MATLAB</em> supports various robots, we show here a Franka robot example (<code class="docutils literal notranslate"><span class="pre">main_franka.m</span></code>), which is inherited from the <code class="xref mat mat-class docutils literal notranslate"><span class="pre">RobotPrimitives</span></code>-class.
+The initialization is shown below:</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Call Franka Robot</span><span class="w"></span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <code class="xref mat mat-func docutils literal notranslate"><span class="pre">init()</span></code>-function initializes all Joint Twists and Generalized Mass Matrices for the initial configuration.
+For visualization, the robot object can be passed to a 2D or 3D-animation object:</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Create animation</span><span class="w"></span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]);</span><span class="w"></span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <code class="xref mat mat-class docutils literal notranslate"><span class="pre">Animation</span></code>-class heavily relies on MATLAB graphic functions (e.g., axes, patches, lighting).
+The <code class="xref mat mat-class docutils literal notranslate"><span class="pre">Animation</span></code>-class has an optional input that allows the recording of videos with adjustable playback speeds.</p>
+<p>At run-time (simulation time <code class="docutils literal notranslate"><span class="pre">t</span></code>), the robot object (in configuration <code class="docutils literal notranslate"><span class="pre">q</span></code>) and the animation can be updated:</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Update kinematics</span><span class="w"></span>
+<span class="n">robot</span><span class="p">.</span><span class="n">updateKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">anim</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For first-time users, we provide a simple example simulation. By default, the simulation loop is set to be real-time:</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Cyclic code starts here</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">simTime</span><span class="w"></span>
+<span class="w">    </span><span class="nb">tic</span><span class="w"></span>
+
+<span class="w">    </span><span class="c">% YOUR CONTROLLER</span><span class="w"></span>
+
+<span class="w">    </span><span class="c">% Do not go faster than real time</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">toc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dt</span><span class="w"></span>
+<span class="w">        </span><span class="c">% do nothing</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The structure of the example application is the following: (1) calculation of all kinematic and dynamic robot parameters;
+(2) trajectory generation; (3) control law; (4) integration and update. For (1), the member functions of the robot object are used.
+While (2) and (3) are generally user specific, we implemented a simple impedance controller for the Franka robot
+(<code class="docutils literal notranslate"><span class="pre">main_franka.m</span></code>) that moves the end-effector around a circular trajectory. For the integration (4), any integrator can be used,
+e.g., MATLAB’s pre-built <code class="docutils literal notranslate"><span class="pre">ode45.m</span></code>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/ExAppl_Franka.png"><img alt="../_images/ExAppl_Franka.png" src="../_images/ExAppl_Franka.png" style="width: 800px;" /></a>
+</figure>
+</section>
 </section>
 
 
@@ -108,7 +152,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../exp_theory/product_of_exponentials_formula.html" class="btn btn-neutral float-right" title="Product of Exponentials Formula" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../exp_theory/DH_method_and_comparison_with_exp.html" class="btn btn-neutral float-right" title="Denavit-Hartenberg Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

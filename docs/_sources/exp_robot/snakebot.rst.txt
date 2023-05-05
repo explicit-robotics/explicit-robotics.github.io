@@ -1,22 +1,21 @@
 ===========
 SnakeBot
 ===========
-SnakeBot is an :math:`n`-DOF robot, which consists of :math:`n` linkages with different masses and lengths. 
+To create a robot with arbitrary DOF, the SnakeBot can be used.
 
-Geometric and Inertial Parameters
-==================================
-The SnakeBot consists of :math:`n` linkages, where :math:`n` is a parameter passed to the constructor of the robot. 
-Note that each link has uniform mass distribution.
+The SnakeBot consists of ``n`` linkages, where ``n`` is a parameter passed to the constructor of the robot. 
+Here, we assume each link has uniform mass distribution.
 
 .. figure:: ../images/snake_bot_inertia.png
 	:align: center
 	:width: 400
 
-The :math:`i`-th link consists of mass :math:`m_i` and length :math:`l_i`.
+In the figure above, the :math:`i`-th link consists of mass :math:`m_i` and length :math:`l_i`.
 	
 Initial Configuration and Joint Parameters
 ===========================================
-The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
+Below, the robot in initial configuration with stationary coordinate frame :math:`\{S\}` and origin :math:`\{O\}`
+is shown:
 
 .. figure:: ../images/snake_bot_joint.png
 	:align: center
@@ -59,11 +58,9 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, 1)
      - (0, :math:`-\sum_{i=1}^{n-1}l_i`, 0, 0, 0, 1)
 
-The details of each values and the related theoretical backgrounds are presented in the Theory posts.
-
-Example
+Example code
 =========
-To construct a 5-DOF SnakeBot, simply run the following code:
+To construct a 5-DOF SnakeBot, run the following code:
 
 .. code-block:: MATLAB
 
@@ -84,11 +81,13 @@ To construct a 5-DOF SnakeBot, simply run the following code:
 	anim.init( )
 	anim.attachRobot( robot )    
 
+The output figure should look like this:
+
 .. figure:: ../images/snake_bot_result.png
 	:align: center
 	:width: 400
 
-
-Documentation
-==============
-.. mat:autoclass:: robots.SnakeBot
+..
+  Documentation
+  ==============
+  .. mat:autoclass:: robots.SnakeBot

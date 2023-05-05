@@ -2,23 +2,18 @@
 Franka Emika
 ==============
 
-We introduce `Franka Emika Robot`_. 
+The `Franka Emika Robot`_ is a kinematically redundant robot with 7 DOF. 
+The links and the fixed base of the robot are shown below.
 
 .. _`Franka Emika Robot`: https://www.franka.de/
-
-
-Linkages of Franka Emika
-==================================
-Franka Emika has 7 degrees of freedom, with 7 linkages. 
-The 7 linkages and the fixed basis of the robot is shown below.
 
 .. figure:: ../images/franka_linkage.png
 	:align: center
 	:width: 80%
 
-The Locations of Center of Mass 
+The Locations of Center of Mass (CoM) 
 =================================
-The Center of Mass locations of the 7 linkages are depicted below.
+The CoM locations of the 7 links are depicted below.
 
 .. figure:: ../images/franka_linkages_w_COM.png
 	:align: center
@@ -54,13 +49,14 @@ The Center of Mass locations of the 7 linkages are depicted below.
      - (0.0883, 0.0021, 0.9339)
      - 1.4655
                        
-Note that the Center of Mass locations are expressed with respect to frame :math:`\{S\}`.
-The values are derived from Figure 4 of `this great reference`_. 
+Note that the CoM locations are all expressed with respect to frame :math:`\{S\}`.
+The values are derived from Figure 4 in `this reference`_. 
 The detailed derivation of these values are shown in `this post`_.
 
 Initial Configuration and Joint Parameters
 ===========================================
-The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
+Below, the robot in initial configuration with stationary coordinate frame :math:`\{S\}` and origin :math:`\{O\}`
+is shown:
 
 .. figure:: ../images/franka_joint.png
 	:align: center
@@ -114,11 +110,12 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, -1)
      - (0, 0.0880, 0, 0, 0, -1)	 
 
-Rev. stands for revolute joint. The details of each values and the related theoretical backgrounds are presented in this post.
+Here, "Rev."" stands for revolute joint.
 
 Inertia Tensor of each Linkage
 ================================================
-Given axes :math:`\hat{e}_x`, :math:`\hat{e}_y`, :math:`\hat{e}_z`, the inertia matrix of the i-th linkage about the center of mass, :math:`I_i` is shown below:
+Given axes :math:`\hat{e}_x`, :math:`\hat{e}_y`, :math:`\hat{e}_z`, the inertia matrices of the 
+links about the CoM, :math:`I_i` are shown below:
 
 .. list-table:: 
    :widths: 50 50 
@@ -219,12 +216,12 @@ Given axes :math:`\hat{e}_x`, :math:`\hat{e}_y`, :math:`\hat{e}_z`, the inertia 
 						\phantom{-}0.0007  & 		    -0.0005  &  \phantom{-}0.0067
 					\end{bmatrix}			
 					
-The values are derived from Figure 4 of `this great reference`_.  
+The values are derived from Figure 4 of `this reference`_.  
 The detailed derivation of these values are shown in `this post`_.
 
-Example
+Example code
 =========
-To construct Franka Emika robot, simply run the following code:
+To construct a Franka robot, run the following code:
 
 .. code-block:: MATLAB
 
@@ -237,9 +234,13 @@ To construct Franka Emika robot, simply run the following code:
   anim.init( );
   anim.attachRobot( robot )
 
+The output figure should look like this:
+
 .. figure:: ../images/franka_result.png
 	:align: center
 	:width: 600	  
 
-.. _`this great reference`: https://ieeexplore.ieee.org/document/9561425
+An example application for the Franka robot can be found under `/examples/main_franka.m`.
+
+.. _`this reference`: https://ieeexplore.ieee.org/document/9561425
 .. _`this post`: ../exp_others/franka_derivation.html

@@ -58,19 +58,13 @@
 <li class="toctree-l2"><a class="reference internal" href="cartpole.html">Cart-Pole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doublependulum.html">Double Pendulum</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">SnakeBot</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#geometric-and-inertial-parameters">Geometric and Inertial Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#initial-configuration-and-joint-parameters">Initial Configuration and Joint Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-code">Example code</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">MATLAB Code Documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_MATLAB/documentation.html">Code Documentations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
@@ -104,19 +98,17 @@
              
   <section id="snakebot">
 <h1>SnakeBot<a class="headerlink" href="#snakebot" title="Permalink to this heading"></a></h1>
-<p>SnakeBot is an <span class="math notranslate nohighlight">\(n\)</span>-DOF robot, which consists of <span class="math notranslate nohighlight">\(n\)</span> linkages with different masses and lengths.</p>
-<section id="geometric-and-inertial-parameters">
-<h2>Geometric and Inertial Parameters<a class="headerlink" href="#geometric-and-inertial-parameters" title="Permalink to this heading"></a></h2>
-<p>The SnakeBot consists of <span class="math notranslate nohighlight">\(n\)</span> linkages, where <span class="math notranslate nohighlight">\(n\)</span> is a parameter passed to the constructor of the robot.
-Note that each link has uniform mass distribution.</p>
+<p>To create a robot with arbitrary DOF, the SnakeBot can be used.</p>
+<p>The SnakeBot consists of <code class="docutils literal notranslate"><span class="pre">n</span></code> linkages, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is a parameter passed to the constructor of the robot.
+Here, we assume each link has uniform mass distribution.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/snake_bot_inertia.png"><img alt="../_images/snake_bot_inertia.png" src="../_images/snake_bot_inertia.png" style="width: 400px;" /></a>
 </figure>
-<p>The <span class="math notranslate nohighlight">\(i\)</span>-th link consists of mass <span class="math notranslate nohighlight">\(m_i\)</span> and length <span class="math notranslate nohighlight">\(l_i\)</span>.</p>
-</section>
+<p>In the figure above, the <span class="math notranslate nohighlight">\(i\)</span>-th link consists of mass <span class="math notranslate nohighlight">\(m_i\)</span> and length <span class="math notranslate nohighlight">\(l_i\)</span>.</p>
 <section id="initial-configuration-and-joint-parameters">
 <h2>Initial Configuration and Joint Parameters<a class="headerlink" href="#initial-configuration-and-joint-parameters" title="Permalink to this heading"></a></h2>
-<p>The stationary coordinate frame <span class="math notranslate nohighlight">\(\{S\}\)</span>, the origin, the initial configuration and degrees of freedom of the robot:</p>
+<p>Below, the robot in initial configuration with stationary coordinate frame <span class="math notranslate nohighlight">\(\{S\}\)</span> and origin <span class="math notranslate nohighlight">\(\{O\}\)</span>
+is shown:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/snake_bot_joint.png"><img alt="../_images/snake_bot_joint.png" src="../_images/snake_bot_joint.png" style="width: 400px;" /></a>
 </figure>
@@ -169,11 +161,10 @@ Note that each link has uniform mass distribution.</p>
 </tr>
 </tbody>
 </table>
-<p>The details of each values and the related theoretical backgrounds are presented in the Theory posts.</p>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
-<p>To construct a 5-DOF SnakeBot, simply run the following code:</p>
+<section id="example-code">
+<h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this heading"></a></h2>
+<p>To construct a 5-DOF SnakeBot, run the following code:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of SnakeBot</span><span class="w"></span>
 <span class="n">nq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">         </span><span class="c">% The number of linkages of the Snakebot</span><span class="w"></span>
 <span class="n">m</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the each link</span><span class="w"></span>
@@ -192,33 +183,10 @@ Note that each link has uniform mass distribution.</p>
 <span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
+<p>The output figure should look like this:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/snake_bot_result.png"><img alt="../_images/snake_bot_result.png" src="../_images/snake_bot_result.png" style="width: 400px;" /></a>
 </figure>
-</section>
-<section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
-<dl class="mat class">
-<dt class="sig sig-object mat" id="robots.SnakeBot">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">SnakeBot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nq</span></em>, <em class="sig-param"><span class="pre">m_arr</span></em>, <em class="sig-param"><span class="pre">l_arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#robots.SnakeBot" title="Permalink to this definition"></a></dt>
-<dd><p>Constructs a planar n-DOF Robot.</p>
-<p>The links are assumed to have identical masses and lengths.
-Moreover, uniform mass density is assumed for each link.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The number of linkages for the snakebot.</p></li>
-<li><p><strong>m_arr</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span> <span class="pre">array</span></code></span>) – The mass (kg) array of the n linkages, size of 1 x n</p></li>
-<li><p><strong>l_arr</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float</span> <span class="pre">array</span></code></span>) – The length (m) array of the n linkages, size of 1 x n</p></li>
-</ul>
-</dd>
-</dl>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<p><cite>n</cite> must be an integer. <cite>m_arr</cite> and <cite>l_arr</cite> must all have positive values.</p>
-</div>
-</dd></dl>
-
 </section>
 </section>
 

@@ -7,24 +7,23 @@ Installation
 Explicit-MATLAB 
 ================
 We assume that users have access to recent versions of `MATLAB`_. 
-Explicit-MATLAB was tested for versions after R2022a. 
-For students, you might have access to `campus-wide MATLAB license`_, hence we strongly recommend downloading the recent versions of MATLAB software.
-For users having issues running Explicit-MATLAB with older versions of MATLAB, please provide us feedback as a `Github issue`_.
+*Exp[licit]-MATLAB* was tested for versions after R2022a. 
+For users having issues running the software with older versions of MATLAB, please create a `Github issue`_.
 
-Assuming a recent version of MATLAB software, clone our `Explicit-MATLAB repository`_:
+To clone our `Explicit-MATLAB repository`_, run:
 
 .. code-block:: 
 
 	git clone https://github.com/explicit-robotics/Explicit-MATLAB.git [SET_UP_YOUR_DIRECTORY]
 
-Once the download is complete, run MATLAB and set the current folder to the Explicit-MATLAB folder.
-Run ``setup.m`` script by running the following line of code at the Command Window of MATLAB:
+Once the download is complete, run MATLAB and set the current folder to be the *Exp[licit]-MATLAB* folder.
+Run the ``setup.m`` script to include all subfolders. You can also run the following command in the command window:
 
 .. code-block:: MATLAB
 
 	setup
 
-If the following line appeared at your Command Window, you are all set! 
+If the following line appeares in your command window, you are all set! 
 
 .. code-block:: MATLAB
 

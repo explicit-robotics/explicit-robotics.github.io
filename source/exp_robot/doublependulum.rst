@@ -2,11 +2,8 @@
 Double Pendulum
 ===============
 
-Double pendulum robot, also known as Acrobot, is one of the examples often used in robotics. 
-
-Geometric and Inertial Parameters
-==================================
-The double pendulum consists of:
+The double pendulum  (often called "Acrobot"), is a heavily used example in academia. 
+The geometric and inertial parameters are shown below:
 
 .. figure:: ../images/double_pendulum_inertia.png
 	:align: center
@@ -15,12 +12,13 @@ The double pendulum consists of:
 - The first link with mass :math:`m_1` and length :math:`l_1`.
 - The second link with mass :math:`m_2` and length :math:`l_2`.
 
-Note that both links have uniform mass distribution.
+Here, we assume links with uniform mass distribution.
 
 
 Initial Configuration and Joint Parameters
 ===========================================
-The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
+Below, the robot in initial configuration with stationary coordinate frame :math:`\{S\}` and origin :math:`\{O\}`
+is shown:
 
 .. figure:: ../images/double_pendulum_joint.png
 	:align: center
@@ -47,11 +45,9 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, 1)
      - (:math:`-l_1`, 0, 0, 0, 0, 1)
 
-The details of each values and the related theoretical backgrounds are presented in the Theory posts.
-
-Example
+Example code
 =========
-To construct the double-pendulum robot, simply run the following code:
+To construct the cart-pole robot, run the following code:
 
 .. code-block:: MATLAB
 
@@ -70,10 +66,13 @@ To construct the double-pendulum robot, simply run the following code:
 	anim.init( )
 	anim.attachRobot( robot )
 
+The output figure should look like this:
+
 .. figure:: ../images/double_pendulum_result.png
 	:align: center
 	:width: 400	
 
-Documentation
-==============
-.. mat:autoclass:: robots.DoublePendulum
+..
+  Documentation
+  ==============
+  .. mat:autoclass:: robots.DoublePendulum

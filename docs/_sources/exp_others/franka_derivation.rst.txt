@@ -1,7 +1,6 @@
 ==========================================
-Derivation of franka's Inertia Parameters
+Derivation of Franka's Inertia Parameters
 ==========================================
-In this post, we show the detailed derivation of the `inertial parameters of franka`_.
 
 The original values are derived from Figure 4 of the paper from `Ledezma, Fernando Diaz and Haddadin, Sami`_.
 For the :math:`i`-th link, the mass :math:`m`, mass times the center of mass location :math:`mc_x`, :math:`mc_y`, :math:`mc_z`, and the 6 paramters of the inertia tensor matrix, 
@@ -45,9 +44,9 @@ For the :math:`i`-th link, the mass :math:`m`, mass times the center of mass loc
      - (0.0004, -0.0031, 0.1453)
      - (0.0308, 0.0004, -0.0007, 0.0284, -0.0005, 0.0067)
 
-The inertial parameters of the :math:`i`-th link are described with respect to the frame at the :math:`i`-th joint.
+The inertial parameters of the :math:`i`-th link are described with respect to the frame on the :math:`i`-th joint.
 This frame is defined by the Denavit–Hartenberg (DH) parameters. 
-The DH parameters of the 7 frames attached to the 7 joints are listed in `this website`_, and shown below:
+The DH parameters for the Franka can be found on `this website`_ and are shown below:
 
 .. list-table:: 
    :widths: 25 20 20 20 20
@@ -106,10 +105,10 @@ For :math:`i=1,2,\cdots, 7`, the relation between frame :math:`\{i\}` and :math:
 												  0 & 						   0 & 			   0 &  		     1
 					\end{bmatrix}
 
-Subscript :math:`i` denotes the DH parameter of Joint :math:`i`. 
-Moreover, frame :math:`\{0\}` is simply the fixed frame :math:`\{S\}` attached at the origin.
+Subscript :math:`i` denotes the DH parameter of joint :math:`i`. 
+Moreover, frame :math:`\{0\}` is equal to the fixed frame :math:`\{S\}` attached at the origin.
 
-From this, we can find the frame attached at the :math:`i`-th joint by simple matrix computation:
+From this, we can find the frame attached at the :math:`i`-th joint by matrix concatenation:
 
 .. math::
 	\begin{align}
@@ -120,7 +119,7 @@ From this, we can find the frame attached at the :math:`i`-th joint by simple ma
 		{}^{S}H_{7} &= {}^{S}H_{1} {}^{1}H_{2}{}^{2}H_{3} {}^{3}H_{4}{}^{4}H_{5}{}^{5}H_{6}{}^{6}H_{7} \\
 	\end{align}
 	
-The result plotted in explicit (right) is consistent with the result shown from the `original franka website`_ (left).
+The result plotted in *Exp[licit]* (right) is consistent with the result shown from the `franka website`_ (left).
 
 .. figure:: ../images/franka_original_explicit.png
 		:width: 80%	
@@ -128,9 +127,9 @@ The result plotted in explicit (right) is consistent with the result shown from 
 
 |
 
-Let the center of mass location of the :math:`i`-th link expressed in frame :math:`\{i\}` be denoted as :math:`{}^{i}\mathbf{c}_i := [{}^{i}c_{x,i},{}^{i}c_{y,i},{}^{i}c_{z,i}]`,
-and the values are shown in the table above.
-We simply need to map these values from frame :math:`\{i\}` to frame :math:`\{S\}`.
+Let the CoM location of the :math:`i`-th link, expressed in frame :math:`\{i\}`, be denoted as :math:`{}^{i}\mathbf{c}_i := [{}^{i}c_{x,i},{}^{i}c_{y,i},{}^{i}c_{z,i}]`,
+(shown in the table above).
+We need to map these values from frame :math:`\{i\}` to frame :math:`\{S\}`.
 Thus, for :math:`i=1,2,\cdots,7`:
 
 .. math::
@@ -142,12 +141,12 @@ Thus, for :math:`i=1,2,\cdots,7`:
 		{}^{i}\mathbf{c}_i \\ 1 
 	\end{bmatrix}
 
-From this, we find the position of the center of mass, expressed in frame :math:`\{S\}`.
+From this, we find the position of the CoM, expressed in frame :math:`\{S\}`.
 The detailed location and its values are posted in `this section`_.
 
-Finally, we derive the moment of inertia matrix, but with respect to the axes of frame :math:`\{S\}`.
-Let the moment of inertia matrix about frame :math:`\{i\}` be :math:`{}^{i}\mathbf{I}_i`
-Considering that the moment of inertia matrix is a (0,2)-tensor, it is clear that the moment of inertia with respect to frame :math:`\{S\}` is:
+Finally, we derive the moment of inertia, but with respect to the axes of frame :math:`\{S\}`.
+Let the moment of inertia about frame :math:`\{i\}` be represented by matrix :math:`{}^{i}\mathbf{I}_i`.
+To express with respect to frame :math:`\{S\}` we use the following mapping:
 
 .. math::
 	{}^{S}\mathbf{I}_i = {}^{S}\mathbf{R}_i ~ {}^{i}\mathbf{I}_i ~ {}^{S}\mathbf{R}_i^{\text{T}}
@@ -156,7 +155,7 @@ In this equation :math:`{}^{S}\mathbf{R}_i\in SO(3)`, which can be derived from 
 This eventually gives us the inertia matrix `shown in this section`_.
 
 .. _`this website`: https://frankaemika.github.io/docs/control_parameters.html#denavithartenberg-parameters
-.. _`original franka website`: https://frankaemika.github.io/docs/control_parameters.html#denavithartenberg-parameters
+.. _`franka website`: https://frankaemika.github.io/docs/control_parameters.html#denavithartenberg-parameters
 .. _`inertial parameters of franka`: ../exp_robot/franka.html
 .. _`Ledezma, Fernando Diaz and Haddadin, Sami`: https://ieeexplore.ieee.org/document/9561425
 .. _`this section`: ../exp_robot/franka.html#the-locations-of-center-of-mass

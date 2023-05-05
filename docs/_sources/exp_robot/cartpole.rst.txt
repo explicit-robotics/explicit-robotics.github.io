@@ -2,25 +2,22 @@
 Cart-Pole
 ===========
 
-Cart-Pole robot is one of the examples often used in robotics. 
-
-Geometric and Inertial Parameters
-==================================
-The cart-pole system consists of:
+Cart-Pole robot is one frequently used example in academia. The geometric and inertial parameters are shown below:
 
 .. figure:: ../images/cart_pole_inertia.png
 	:align: center
 	:width: 400
 
-- A cart with point mass :math:`m_c`, depicted in orange square. 
-- A pole with length :math:`l_p`, with point mass :math:`m_p` attached to the end of the pole. The point mass :math:`m_p` is depicted in black circle.
+- A cart with point mass :math:`m_c`. 
+- A pole with length :math:`l_p` and point mass :math:`m_p` attached to the end of the pole. 
 
 Note that the system consists of point masses, i.e., the center of mass of each link is identical to the position of the mass. 
 Moreover, the moment of inertia about the center of mass can be neglected. 
 
 Initial Configuration and Joint Parameters
 ===========================================
-The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
+Below, the robot in initial configuration with stationary coordinate frame :math:`\{S\}` and origin :math:`\{O\}`
+is shown:
 
 .. figure:: ../images/cart_pole_joint.png
 	:align: center
@@ -47,11 +44,9 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, 1)
      - (0, 0, 0, 0, 0, 1)
 
-The details of each values and the related theoretical backgrounds are presented in the Theory posts.
-
-Example
+Example code
 =========
-To construct the cart-pole robot, simply run the following code:
+To construct the cart-pole robot, run the following code:
 
 .. code-block:: MATLAB
 
@@ -69,10 +64,14 @@ To construct the cart-pole robot, simply run the following code:
   anim.init( )
   anim.attachRobot( robot )
 
+The output figure should look like this:
+
 .. figure:: ../images/cart_pole_result.png
 	:align: center
 	:width: 400	
 
-Documentation
-==============
-.. mat:autoclass:: robots.CartPole
+
+..
+  Documentation
+  ==============
+  .. mat:autoclass:: robots.CartPole

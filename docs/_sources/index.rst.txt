@@ -28,11 +28,13 @@ Welcome to EXPlicit documentation!
    2D_robot
    3D_robot
 
-.. toctree::
+..
+   .. toctree::
    :maxdepth: 2
    :caption: MATLAB Code Documentation
    
    exp_MATLAB/documentation   
+
 
 .. toctree::
    :maxdepth: 2
