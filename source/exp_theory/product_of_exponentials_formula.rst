@@ -3,6 +3,7 @@ Product of Exponentials Formula
 ================================
 
 Currently under construction ...
+
 ..
 	The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
 	Consider the following equation:
