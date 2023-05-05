@@ -18,9 +18,9 @@ release = 'v 1.0.0'
 
 
 # Although annoying, we need to include the "absolute path of the explicit-MATLAB"
-matlab_src_dir = '/Users/mosesnah/Documents/GitHub/Explicit-MATLAB'
+matlab_src_dir = '/Users/johanneslachner/Documents/GIT_private/Explicit-MATLAB'
 
-extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinxcontrib.napoleon' ]
+extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx.ext.napoleon']
 
 napoleon_numpy_docstring = True
 # [REF] https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
