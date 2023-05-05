@@ -2,8 +2,9 @@
 Denavit-Hartenberg Parameters
 ================================
 
-UNDER CONSTRUCTION ...
-..The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
+UNDER CONSTRUCTION
+
+# The theory of Product of Exponentials Formula starts with discussing the exponential mapping. 
 ..Consider the following equation:
 
 .. math::
