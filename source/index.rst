@@ -18,7 +18,7 @@ Welcome to EXPlicit documentation!
    :maxdepth: 2
    :caption: Theory
 
-   exp_theory/DH_method_and_comparison_with_exp
+   ..exp_theory/DH_method_and_comparison_with_exp
    exp_theory/product_of_exponentials_formula
 
 .. toctree::
