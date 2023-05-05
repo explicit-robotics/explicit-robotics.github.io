@@ -2,10 +2,6 @@
 Introduction
 ============
 
-.. contents:: Table of Contents
-
-Hello!
-======
 Welcome to *Exp[licit]*-robotics! Our software can be used to model and simulate a variety of robots. The algorithms behind the software
 are based on the Product of Exponentials Formula.
 |
