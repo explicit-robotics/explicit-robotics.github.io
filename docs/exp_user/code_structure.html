@@ -101,39 +101,39 @@ formulation of the robot’s equations of motion, e.g., adaptive control methods
 <h2>Example Application for <em>Exp[licit]-MATLAB</em><a class="headerlink" href="#example-application-for-exp-licit-matlab" title="Permalink to this heading"></a></h2>
 <p>While <em>Exp[licit]-MATLAB</em> supports various robots, we show here a Franka robot example (<code class="docutils literal notranslate"><span class="pre">main_franka.m</span></code>), which is inherited from the <code class="xref mat mat-class docutils literal notranslate"><span class="pre">RobotPrimitives</span></code>-class.
 The initialization is shown below:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Call Franka Robot</span><span class="w"></span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Call Franka Robot</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The <code class="xref mat mat-func docutils literal notranslate"><span class="pre">init()</span></code>-function initializes all Joint Twists and Generalized Mass Matrices for the initial configuration.
 For visualization, the robot object can be passed to a 2D or 3D-animation object:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Create animation</span><span class="w"></span>
-<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Create animation</span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="xref mat mat-class docutils literal notranslate"><span class="pre">Animation</span></code>-class heavily relies on MATLAB graphic functions (e.g., axes, patches, lighting).
 The <code class="xref mat mat-class docutils literal notranslate"><span class="pre">Animation</span></code>-class has an optional input that allows the recording of videos with adjustable playback speeds.</p>
 <p>At run-time (simulation time <code class="docutils literal notranslate"><span class="pre">t</span></code>), the robot object (in configuration <code class="docutils literal notranslate"><span class="pre">q</span></code>) and the animation can be updated:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Update kinematics</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">updateKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Update kinematics</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">updateKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 <p>For first-time users, we provide a simple example simulation. By default, the simulation loop is set to be real-time:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Cyclic code starts here</span><span class="w"></span>
-<span class="k">while</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">simTime</span><span class="w"></span>
-<span class="w">    </span><span class="nb">tic</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Cyclic code starts here</span>
+<span class="k">while</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">simTime</span>
+<span class="w">    </span><span class="nb">tic</span>
 
-<span class="w">    </span><span class="c">% YOUR CONTROLLER</span><span class="w"></span>
+<span class="w">    </span><span class="c">% YOUR CONTROLLER</span>
 
-<span class="w">    </span><span class="c">% Do not go faster than real time</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">toc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dt</span><span class="w"></span>
-<span class="w">        </span><span class="c">% do nothing</span><span class="w"></span>
-<span class="w">    </span><span class="k">end</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Do not go faster than real time</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">toc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dt</span>
+<span class="w">        </span><span class="c">% do nothing</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>The structure of the example application is the following: (1) calculation of all kinematic and dynamic robot parameters;
