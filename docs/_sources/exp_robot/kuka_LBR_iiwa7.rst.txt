@@ -1,5 +1,5 @@
 ==============
-KUKA LBR iiwa7
+KUKA LBR iiwa 7
 ==============
 
 The `Kuka LBR iiwa 7`_ is a kinematically redundant robot with 7 DOF. The links and the fixed base of the robot are shown below.
@@ -181,7 +181,7 @@ The links and the fixed basis of the robot are shown below:
 
 
 
-Example *Exp[licit]*-MATLAB
+Example Exp[licit]-MATLAB
 =========
 To construct a KUKA LBR iiwa 7 in *Exp[licit]*-MATLAB, run the following code:
 

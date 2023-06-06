@@ -1,5 +1,5 @@
 ===============
-KUKA LBR iiwa14
+KUKA LBR iiwa 14
 ===============
  
 The `KUKA LBR iiwa 14`_ is a kinematically redundant robot with 7 DOF. The links and the fixed base of the robot are shown below.
@@ -180,7 +180,7 @@ The links and the fixed basis of the robot are shown below:
    * - Linkage 7
      - (0.0003, 0.0003, 0.0005)  
 
-Example *Exp[licit]*-MATLAB
+Example Exp[licit]-MATLAB
 =========
 To construct a KUKA LBR iiwa 14 in *Exp[licit]*-MATLAB, run the following code:
 
@@ -203,7 +203,7 @@ The output figure should look like this:
 
 An example application for the KUKA LBR iiwa 14 can be found under `/examples/main_iiwa14.m`.
 
-Example *Exp[licit]*-FRI
+Example Exp[licit]-FRI
 =========
 To construct a KUKA LBR iiwa 14 in the Client Application of FRI (C++), run the following code in the constructor of ``MyLBRClient``.
 
@@ -232,8 +232,8 @@ The member functions of the ``myLBR``-object can then be used in the ``MyLBRClie
 The basic application calculates the Forward Kinematics, Jacobian Matrix, and Mass matrix of the robot 
 and prints the calculational effort.
 
-The source file includes an iir-filter, with coefficients determined via `winfilter`_. 
-The filter is needed to activate the robot's build-in friction compensation. 
+To get started with FRI (C++), we provide a "basic application." The source file includes an iir-filter, with coefficients 
+determined via `winfilter`_. The filter is needed to activate the robot's build-in friction compensation. 
 Before sending the torques, we add a simple mean filter to smooth out the torque signals.  
 
 .. _`winfilter`: http://www.winfilter.20m.com/
