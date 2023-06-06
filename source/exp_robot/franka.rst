@@ -219,7 +219,7 @@ links about the CoM, :math:`I_i` are shown below:
 The values are derived from Figure 4 of `this reference`_.  
 The detailed derivation of these values are shown in `this post`_.
 
-Example *Exp[licit]*-MATLAB
+Example Exp[licit]-MATLAB
 =========
 To construct a Franka robot in *Exp[licit]*-MATLAB, run the following code:
 
