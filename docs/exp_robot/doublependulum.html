@@ -47,14 +47,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/code_structure.html">Code Structure</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Theory</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../2D_robot.html">2D Planar Robots in <em>Exp[licit]</em>-MATLAB</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cartpole.html">Cart-Pole</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Double Pendulum</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#initial-configuration-and-joint-parameters">Initial Configuration and Joint Parameters</a></li>
@@ -65,6 +60,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
@@ -85,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../2D_robot.html">2D Planar Robots in <em>Exp[licit]</em>-MATLAB</a></li>
+          <li class="breadcrumb-item"><a href="../2D_robot.html">2D Planar Robots</a></li>
       <li class="breadcrumb-item active">Double Pendulum</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/exp_robot/doublependulum.rst.txt" rel="nofollow"> View page source</a>
@@ -150,20 +150,20 @@ is shown:</p>
 <section id="example-code">
 <h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this heading"></a></h2>
 <p>To construct the cart-pole robot, run the following code:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of the double pendulum robot</span><span class="w"></span>
-<span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the  first link</span><span class="w"></span>
-<span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the second link</span><span class="w"></span>
-<span class="n">l1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the  first link</span><span class="w"></span>
-<span class="n">l2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the second link</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of the double pendulum robot</span>
+<span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the  first link</span>
+<span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the second link</span>
+<span class="n">l1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the  first link</span>
+<span class="n">l2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the second link</span>
 
-<span class="c">% Construct the double-pendulum robot and initialize</span><span class="w"></span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DoublePendulum</span><span class="p">(</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">% Construct the double-pendulum robot and initialize</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DoublePendulum</span><span class="p">(</span><span class="w"> </span><span class="n">m1</span><span class="p">,</span><span class="w"> </span><span class="n">m2</span><span class="p">,</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
 
-<span class="c">% Attach the double-pendulum robot to animation for visualization</span><span class="w"></span>
-<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">% Attach the double-pendulum robot to animation for visualization</span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output figure should look like this:</p>

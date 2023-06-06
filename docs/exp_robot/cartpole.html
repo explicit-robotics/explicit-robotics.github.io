@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Double Pendulum" href="doublependulum.html" />
-    <link rel="prev" title="2D Planar Robots in Exp[licit]-MATLAB" href="../2D_robot.html" /> 
+    <link rel="prev" title="2D Planar Robots" href="../2D_robot.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,14 +47,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/code_structure.html">Code Structure</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Theory</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../2D_robot.html">2D Planar Robots in <em>Exp[licit]</em>-MATLAB</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Cart-Pole</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#initial-configuration-and-joint-parameters">Initial Configuration and Joint Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example-code">Example code</a></li>
@@ -65,6 +60,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
@@ -85,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../2D_robot.html">2D Planar Robots in <em>Exp[licit]</em>-MATLAB</a></li>
+          <li class="breadcrumb-item"><a href="../2D_robot.html">2D Planar Robots</a></li>
       <li class="breadcrumb-item active">Cart-Pole</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/exp_robot/cartpole.rst.txt" rel="nofollow"> View page source</a>
@@ -150,19 +150,19 @@ is shown:</p>
 <section id="example-code">
 <h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this heading"></a></h2>
 <p>To construct the cart-pole robot, run the following code:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of the cart-pole robot</span><span class="w"></span>
-<span class="n">mc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the cart</span><span class="w"></span>
-<span class="n">mp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the pole</span><span class="w"></span>
-<span class="n">lp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The length of the pole</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of the cart-pole robot</span>
+<span class="n">mc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the cart</span>
+<span class="n">mp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The mass of the pole</span>
+<span class="n">lp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="c">% The length of the pole</span>
 
-<span class="c">% Construct the cart-pole robot and initialize</span><span class="w"></span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">CartPole</span><span class="p">(</span><span class="w"> </span><span class="n">mc</span><span class="p">,</span><span class="w"> </span><span class="n">mp</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">% Construct the cart-pole robot and initialize</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">CartPole</span><span class="p">(</span><span class="w"> </span><span class="n">mc</span><span class="p">,</span><span class="w"> </span><span class="n">mp</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
 
-<span class="c">% Attach the cart-pole robot to animation for visualization</span><span class="w"></span>
-<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">% Attach the cart-pole robot to animation for visualization</span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output figure should look like this:</p>
@@ -176,7 +176,7 @@ is shown:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../2D_robot.html" class="btn btn-neutral float-left" title="2D Planar Robots in Exp[licit]-MATLAB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../2D_robot.html" class="btn btn-neutral float-left" title="2D Planar Robots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="doublependulum.html" class="btn btn-neutral float-right" title="Double Pendulum" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

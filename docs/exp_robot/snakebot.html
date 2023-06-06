@@ -47,14 +47,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exp_user/code_structure.html">Code Structure</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Theory</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../2D_robot.html">2D Planar Robots in <em>Exp[licit]</em>-MATLAB</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cartpole.html">Cart-Pole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doublependulum.html">Double Pendulum</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">SnakeBot</a><ul>
@@ -65,6 +60,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/product_of_exponentials_formula.html">Product of Exponentials Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exp_theory/DH_method_and_comparison_with_exp.html">Denavit-Hartenberg Parameters</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Others</span></p>
 <ul>
@@ -85,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../2D_robot.html">2D Planar Robots in <em>Exp[licit]</em>-MATLAB</a></li>
+          <li class="breadcrumb-item"><a href="../2D_robot.html">2D Planar Robots</a></li>
       <li class="breadcrumb-item active">SnakeBot</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/exp_robot/snakebot.rst.txt" rel="nofollow"> View page source</a>
@@ -165,22 +165,22 @@ is shown:</p>
 <section id="example-code">
 <h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this heading"></a></h2>
 <p>To construct a 5-DOF SnakeBot, run the following code:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of SnakeBot</span><span class="w"></span>
-<span class="n">nq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">         </span><span class="c">% The number of linkages of the Snakebot</span><span class="w"></span>
-<span class="n">m</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the each link</span><span class="w"></span>
-<span class="n">l</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the each link</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Geometric and Inertial Parameters of SnakeBot</span>
+<span class="n">nq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">         </span><span class="c">% The number of linkages of the Snakebot</span>
+<span class="n">m</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The   mass of the each link</span>
+<span class="n">l</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">         </span><span class="c">% The length of the each link</span>
 
-<span class="n">m_arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nq</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c">% The mass   array to construct SnakeBot</span><span class="w"></span>
-<span class="n">l_arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nq</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c">% The length array to construct SnakeBot</span><span class="w"></span>
+<span class="n">m_arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nq</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c">% The mass   array to construct SnakeBot</span>
+<span class="n">l_arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nq</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c">% The length array to construct SnakeBot</span>
 
-<span class="c">% Construct a 5-DOF SnakeBot</span><span class="w"></span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">SnakeBot</span><span class="p">(</span><span class="w"> </span><span class="n">nq</span><span class="p">,</span><span class="w"> </span><span class="n">m_arr</span><span class="p">,</span><span class="w"> </span><span class="n">l_arr</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">% Construct a 5-DOF SnakeBot</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">SnakeBot</span><span class="p">(</span><span class="w"> </span><span class="n">nq</span><span class="p">,</span><span class="w"> </span><span class="n">m_arr</span><span class="p">,</span><span class="w"> </span><span class="n">l_arr</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
 
-<span class="c">% Attach the 5-DOF SnakeBot to animation for visualization</span><span class="w"></span>
-<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">% Attach the 5-DOF SnakeBot to animation for visualization</span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">)</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output figure should look like this:</p>

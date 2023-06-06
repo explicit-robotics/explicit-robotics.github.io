@@ -17,7 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2D Planar Robots in Exp[licit]-MATLAB" href="../2D_robot.html" />
+    <link rel="next" title="2D Planar Robots" href="../2D_robot.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
@@ -52,7 +52,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Robots</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../2D_robot.html">2D Planar Robots in <em>Exp[licit]</em>-MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2D_robot.html">2D Planar Robots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3D_robot.html">3D Spatial Robots</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Theory</span></p>
@@ -102,39 +102,39 @@ formulation of the robot’s equations of motion, e.g., adaptive control methods
 <h2>Structure of Exp[licit]-MATLAB<a class="headerlink" href="#structure-of-exp-licit-matlab" title="Permalink to this heading"></a></h2>
 <p>While <em>Exp[licit]-MATLAB</em> supports various robots, we show here a Franka robot example (<code class="docutils literal notranslate"><span class="pre">main_franka.m</span></code>), which is inherited from the <code class="xref mat mat-class docutils literal notranslate"><span class="pre">RobotPrimitives</span></code>-class.
 The initialization is shown below:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Call Franka Robot</span><span class="w"></span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Call Franka Robot</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">franka</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The <code class="xref mat mat-func docutils literal notranslate"><span class="pre">init()</span></code>-function initializes all Joint Twists and Generalized Mass Matrices for the initial configuration.
 For visualization, the robot object can be passed to a 2D or 3D-animation object:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Create animation</span><span class="w"></span>
-<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Create animation</span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="xref mat mat-class docutils literal notranslate"><span class="pre">Animation</span></code>-class heavily relies on MATLAB graphic functions (e.g., axes, patches, lighting).
 The <code class="xref mat mat-class docutils literal notranslate"><span class="pre">Animation</span></code>-class has an optional input that allows the recording of videos with adjustable playback speeds.</p>
 <p>At run-time (simulation time <code class="docutils literal notranslate"><span class="pre">t</span></code>), the robot object (in configuration <code class="docutils literal notranslate"><span class="pre">q</span></code>) and the animation can be updated:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Update kinematics</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">updateKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Update kinematics</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">updateKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 <p>For first-time users, we provide a simple example simulation. By default, the simulation loop is set to be real-time:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Cyclic code starts here</span><span class="w"></span>
-<span class="k">while</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">simTime</span><span class="w"></span>
-<span class="w">    </span><span class="nb">tic</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Cyclic code starts here</span>
+<span class="k">while</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">simTime</span>
+<span class="w">    </span><span class="nb">tic</span>
 
-<span class="w">    </span><span class="c">% YOUR CONTROLLER</span><span class="w"></span>
+<span class="w">    </span><span class="c">% YOUR CONTROLLER</span>
 
-<span class="w">    </span><span class="c">% Do not go faster than real time</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">toc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dt</span><span class="w"></span>
-<span class="w">        </span><span class="c">% do nothing</span><span class="w"></span>
-<span class="w">    </span><span class="k">end</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Do not go faster than real time</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">toc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dt</span>
+<span class="w">        </span><span class="c">% do nothing</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>The structure of the example application is the following: (1) calculation of all kinematic and dynamic robot parameters;
@@ -151,23 +151,23 @@ e.g., MATLAB’s pre-built <code class="docutils literal notranslate"><span clas
 <p>Currently, <em>Exp[licit]-cpp</em> supports one robot, the KUKA LBR iiwa 14. During the initialization, a robot object can be created,
 which is inherited from the <code class="xref mat mat-class docutils literal notranslate"><span class="pre">RobotPrimitives</span></code>-class. The initialization is shown below:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use Explicit-cpp to create your robot</span>
-<span class="n">myLBR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Trey&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">myLBR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Trey&quot;</span><span class="p">);</span>
+<span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c1">// Current joint configuration</span>
-<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="o">::</span><span class="n">Zero</span><span class="p">(</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">nq</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="o">::</span><span class="n">Zero</span><span class="p">(</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">nq</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Here, the <code class="xref mat mat-func docutils literal notranslate"><span class="pre">init()</span></code>-member function initializes all Joint Twists and Generalized Mass Matrices for the initial configuration. The member
 functions of the <code class="docutils literal notranslate"><span class="pre">myLBR</span></code>-object can then be used:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Homogeneous Transformation Matrix</span>
-<span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getForwardKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getForwardKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c1">// Hybrid Jacobian Matrix (6x7)</span>
-<span class="n">J</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getHybridJacobian</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">J</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getHybridJacobian</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c1">// Mass matrix</span>
-<span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getMassMatrix</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getMassMatrix</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -178,7 +178,7 @@ functions of the <code class="docutils literal notranslate"><span class="pre">my
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../2D_robot.html" class="btn btn-neutral float-right" title="2D Planar Robots in Exp[licit]-MATLAB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../2D_robot.html" class="btn btn-neutral float-right" title="2D Planar Robots" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

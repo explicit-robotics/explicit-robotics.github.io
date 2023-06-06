@@ -105,14 +105,14 @@
 <section id="example-exp-licit-matlab">
 <h2>Example Exp[licit]-MATLAB<a class="headerlink" href="#example-exp-licit-matlab" title="Permalink to this heading"></a></h2>
 <p>To construct a KUKA LBR iiwa 14 in <em>Exp[licit]</em>-MATLAB, run the following code:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Construct Kuka object, with high visual quality</span><span class="w"></span>
-<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;high&#39;</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% Construct Kuka object, with high visual quality</span>
+<span class="n">robot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;high&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="n">robot</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
 
-<span class="c">% Set figure size and attach robot for visualization</span><span class="w"></span>
-<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">% Set figure size and attach robot for visualization</span>
+<span class="n">anim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Animation</span><span class="p">(</span><span class="w"> </span><span class="s">&#39;Dimension&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;xLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;yLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;zLim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<span class="n">anim</span><span class="p">.</span><span class="n">attachRobot</span><span class="p">(</span><span class="w"> </span><span class="n">robot</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output figure should look like this:</p>
@@ -125,22 +125,22 @@
 <h2>Example Exp[licit]-FRI<a class="headerlink" href="#example-exp-licit-fri" title="Permalink to this heading"></a></h2>
 <p>To construct a KUKA LBR iiwa 14 in the Client Application of FRI (C++), run the following code in the constructor of <code class="docutils literal notranslate"><span class="pre">MyLBRClient</span></code>.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use Explicit-cpp to create your robot</span>
-<span class="n">myLBR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Trey&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">myLBR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">iiwa14</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Trey&quot;</span><span class="p">);</span>
+<span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c1">// Current joint configuration</span>
-<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="o">::</span><span class="n">Zero</span><span class="p">(</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">nq</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="o">::</span><span class="n">Zero</span><span class="p">(</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">nq</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The member functions of the <code class="docutils literal notranslate"><span class="pre">myLBR</span></code>-object can then be used in the <code class="docutils literal notranslate"><span class="pre">MyLBRClient:command()</span></code>-method:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Homogeneous Transformation Matrix</span>
-<span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getForwardKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getForwardKinematics</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c1">// Hybrid Jacobian Matrix (6x7)</span>
-<span class="n">J</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getHybridJacobian</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">J</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getHybridJacobian</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
 
 <span class="c1">// Mass matrix</span>
-<span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getMassMatrix</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLBR</span><span class="o">-&gt;</span><span class="n">getMassMatrix</span><span class="p">(</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The basic application calculates the Forward Kinematics, Jacobian Matrix, and Mass matrix of the robot
