@@ -1,32 +1,28 @@
 ==============
-Kuka LBR iiwa7
+KUKA LBR iiwa7
 ==============
 
-We introduce `Kuka LBR iiwa7`_. 
+The `Kuka LBR iiwa 7`_ is a kinematically redundant robot with 7 DOF. The links and the fixed base of the robot are shown below.
 
-.. _`Kuka LBR iiwa7`: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa
+.. _`KUKA LBR iiwa 7`: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa
 
-Linkages of LBR iiwa7
-==================================
-Kuka LBR iiwa7 has 7 degrees of freedom, with 7 linkages. 
-Note that number in "LBR iiwa7" indicates the payload of the robot, rather than the degrees of freedom.
-The 7 linkages and the fixed basis of the robot is shown below:
+The links and the fixed basis of the robot are shown below:
 
 .. figure:: ../images/LBR_iiwa7_Linkage.png
 	:align: center
 	:width: 90%
 
+..
+  The Locations of Center of Mass 
+  ==================================
+  The Center of Mass locations of the 7 linkages are depicted below.
 
-The Locations of Center of Mass 
-==================================
-The Center of Mass locations of the 7 linkages are depicted below.
-
-.. figure:: ../images/LBR_iiwa7_COM.png
+  .. figure:: ../images/LBR_iiwa7_COM.png
 	:align: center
 	:width: 90%
 
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 20 40 15
    :header-rows: 1
    :align: center 
@@ -56,18 +52,18 @@ The Center of Mass locations of the 7 linkages are depicted below.
      - (0.000, 0.0001, 1.2306)
      - 0.4219
 
-Note that the Center of Mass locations are expressed with respect to frame :math:`\{S\}`.
+  Note that the Center of Mass locations are expressed with respect to frame :math:`\{S\}`.
 
-Initial Configuration and Joint Parameters
-===========================================
-The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
+  Initial Configuration and Joint Parameters
+  ===========================================
+  The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
 
 
-.. figure:: ../images/LBR_iiwa7_joint.png
+  .. figure:: ../images/LBR_iiwa7_joint.png
 	:align: center
 	:width: 90%
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 10 25 25 20 45 
    :header-rows: 1
    :align: center 
@@ -113,15 +109,15 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, 1)
      - (0, 0, 0, 0, 0, 1)	 
 
-The details of each values and the related theoretical backgrounds are presented in this post.
+  The details of each values and the related theoretical backgrounds are presented in this post.
 
 
-Principal Axes and Principal Moment of Inertia 
-================================================
-The principal axes about the center of mass of each linkage are shown below.
-Note that the initial configuration of the robot is chosen to align the principal axes of inertia with the axes of frame :math:`\{S\}`.
+  Principal Axes and Principal Moment of Inertia 
+  ================================================
+  The principal axes about the center of mass of each linkage are shown below.
+  Note that the initial configuration of the robot is chosen to align the principal axes of inertia with the axes of frame :math:`\{S\}`.
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -131,7 +127,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - .. figure:: ../images/iiwa7_linkage2.png
           :width: 100%	
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -141,7 +137,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - .. figure:: ../images/iiwa7_linkage4.png
           :width: 100%	
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -151,7 +147,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - .. figure:: ../images/iiwa7_linkage6.png
           :width: 100%	
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -161,7 +157,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - 
 
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 20 40 
    :header-rows: 1
    :align: center 
@@ -183,9 +179,11 @@ Note that the initial configuration of the robot is chosen to align the principa
    * - Linkage 7
      - (0.0003,  0.0003, 0.0005)     
 
-Example
+
+
+Example *Exp[licit]*-MATLAB
 =========
-To construct Kuka LBR iiwa7, simply run the following code:
+To construct a KUKA LBR iiwa 7 in *Exp[licit]*-MATLAB, run the following code:
 
 .. code-block:: MATLAB
 
@@ -196,8 +194,12 @@ To construct Kuka LBR iiwa7, simply run the following code:
   % Set figure size and attach robot for visualization
   anim = Animation( 'Dimension', 3, 'xLim', [-0.7,0.7], 'yLim', [-0.7,0.7], 'zLim', [0,1.4] );
   anim.init( );
-  anim.attachRobot( robot )  
+  anim.attachRobot( robot ) 
+
+The output figure should look like this:
 
 .. figure:: ../images/LBR_iiwa7_result_view2.png
 	:align: center
-	:width: 600	
+	:width: 600		  
+
+An example application for the KUKA LBR iiwa 7 can be found under `/examples/main_iiwa7.m`.

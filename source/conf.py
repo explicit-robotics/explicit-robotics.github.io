@@ -25,7 +25,7 @@ matlab_src_dir = '/Users/mosesnah/Documents/GitHub/Explicit-MATLAB'
 extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinxcontrib.napoleon' ]
 
 # For Python 3.10
-# extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx.ext.napoleon']
+extensions = [ 'sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx.ext.napoleon']
 
 napoleon_numpy_docstring = True
 # [REF] https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html

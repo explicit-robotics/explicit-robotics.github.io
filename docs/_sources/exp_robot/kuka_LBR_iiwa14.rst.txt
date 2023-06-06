@@ -1,44 +1,42 @@
 ===============
-Kuka LBR iiwa14
+KUKA LBR iiwa14
 ===============
+ 
+The `KUKA LBR iiwa 14`_ is a kinematically redundant robot with 7 DOF. The links and the fixed base of the robot are shown below.
 
-We introduce `Kuka LBR iiwa 14`_. 
+.. _`KUKA LBR iiwa 14`: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa
 
-.. _`Kuka LBR iiwa 14`: https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa
-
-Linkages of LBR iiwa14
-==================================
-Kuka LBR iiwa14 has 7 degrees of freedom, with 7 linkages. 
-The 7 linkages and the fixed basis of the robot is shown below:
+The links and the fixed basis of the robot are shown below:
 
 .. figure:: ../images/LBR_iiwa14_Linkage.png
 	:align: center
 	:width: 90%
 
-The Locations of Center of Mass 
-=================================
-The Center of Mass locations of the 7 linkages are depicted below.
+..
+  The Locations of Center of Mass (CoM)
+  =================================
+  The CoM locations of the 7 links are depicted below.
 
-.. figure:: ../images/LBR_iiwa14_COM.png
-	:align: center
-	:width: 90%
+  .. figure:: ../images/LBR_iiwa14_COM.png
+	  :align: center
+	  :width: 90%
 
 
-.. list-table:: 
-   :widths: 20 40 15
-   :header-rows: 1
-   :align: center 
+  .. list-table:: 
+    :widths: 20 40 15
+    :header-rows: 1
+    :align: center 
 
-   * - Center of Mass
-     - Center of Mass Locations (m)
-     - Mass (kg)
-   * - COM1
-     - (0, -0.0140, 0.2545)
-     - 6.4040
-   * - COM2
-     - (0, 0.0030, 0.4240)
-     - 7.8900
-   * - COM3
+    * - Center of Mass
+      - Center of Mass Locations (m)
+      - Mass (kg)
+    * - COM1
+      - (0, -0.0140, 0.2545)
+      - 6.4040
+    * - COM2
+      - (0, 0.0030, 0.4240)
+      - 7.8900
+    *  - COM3
      - (0, 0.0190, 0.6905)
      - 2.5400
    * - COM4
@@ -54,19 +52,18 @@ The Center of Mass locations of the 7 linkages are depicted below.
      - (0, 0, 1.2706)
      - 0.4200
 
-Note that the Center of Mass locations are expressed with respect to frame :math:`\{S\}`.
+  Note that the CoM locations are all expressed with respect to coordinate frame :math:`\{S\}`.
 
+  Initial Configuration and Joint Parameters
+  ===========================================
+  Below, the robot in initial configuration with stationary coordinate frame :math:`\{S\}` and origin :math:`\{O\}`
+  is shown:
 
-Initial Configuration and Joint Parameters
-===========================================
-The stationary coordinate frame :math:`\{S\}`, the origin, the initial configuration and degrees of freedom of the robot:
-
-
-.. figure:: ../images/LBR_iiwa14_joint.png
+  .. figure:: ../images/LBR_iiwa14_joint.png
 	:align: center
 	:width: 90%
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 10 25 25 20 45 
    :header-rows: 1
    :align: center 
@@ -113,15 +110,15 @@ The stationary coordinate frame :math:`\{S\}`, the origin, the initial configura
      - (0, 0, 1)
      - (0, 0, 0, 0, 0, 1)	 
 
-The details of each values and the related theoretical backgrounds are presented in this post.
 
-Principal Axes and Principal Moment of Inertia 
-================================================
-The principal axes about the center of mass of each linkage are shown below.
-Note that the initial configuration of the robot is chosen to align the principal axes of inertia with the axes of frame :math:`\{S\}`.
+  Principal Axes and Principal Moment of Inertia 
+  ================================================
+  The principal axes about the CoM of each link are shown below.
+  Note that the initial configuration of the robot is chosen such that the principal axes 
+  of inertia are alligned with the axes of coordinate frame :math:`\{S\}`.
 
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -131,7 +128,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - .. figure:: ../images/iiwa14_linkage2.png
           :width: 100%	
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -141,7 +138,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - .. figure:: ../images/iiwa14_linkage4.png
           :width: 100%	
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -151,7 +148,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - .. figure:: ../images/iiwa14_linkage6.png
           :width: 100%	
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 50 50 
    :align: center 
 
@@ -161,7 +158,7 @@ Note that the initial configuration of the robot is chosen to align the principa
      - 
 
 
-.. list-table:: 
+  .. list-table:: 
    :widths: 20 40 
    :header-rows: 1
    :align: center 
@@ -183,9 +180,9 @@ Note that the initial configuration of the robot is chosen to align the principa
    * - Linkage 7
      - (0.0003, 0.0003, 0.0005)  
 
-Example
+Example *Exp[licit]*-MATLAB
 =========
-To construct Kuka LBR iiwa14, simply run the following code:
+To construct a KUKA LBR iiwa 14 in *Exp[licit]*-MATLAB, run the following code:
 
 .. code-block:: MATLAB
 
@@ -198,6 +195,45 @@ To construct Kuka LBR iiwa14, simply run the following code:
   anim.init( );
   anim.attachRobot( robot )
 
+The output figure should look like this:
+
 .. figure:: ../images/LBR_iiwa7_result_view2.png
 	:align: center
 	:width: 600	  
+
+An example application for the KUKA LBR iiwa 14 can be found under `/examples/main_iiwa14.m`.
+
+Example *Exp[licit]*-FRI
+=========
+To construct a KUKA LBR iiwa 14 in the Client Application of FRI (C++), run the following code in the constructor of ``MyLBRClient``.
+
+.. code-block:: cpp
+
+    // Use Explicit-cpp to create your robot
+    myLBR = new iiwa14( 1, "Trey");
+    myLBR->init( );
+
+    // Current joint configuration
+    q = Eigen::VectorXd::Zero( myLBR->nq );
+
+The member functions of the ``myLBR``-object can then be used in the ``MyLBRClient:command()``-method:
+
+.. code-block:: cpp
+
+    // Homogeneous Transformation Matrix
+    H = myLBR->getForwardKinematics( q );
+
+    // Hybrid Jacobian Matrix (6x7)
+    J = myLBR->getHybridJacobian( q );
+
+    // Mass matrix
+    M = myLBR->getMassMatrix( q );
+
+The basic application calculates the Forward Kinematics, Jacobian Matrix, and Mass matrix of the robot 
+and prints the calculational effort.
+
+The source file includes an iir-filter, with coefficients determined via `winfilter`_. 
+The filter is needed to activate the robot's build-in friction compensation. 
+Before sending the torques, we add a simple mean filter to smooth out the torque signals.  
+
+.. _`winfilter`: http://www.winfilter.20m.com/

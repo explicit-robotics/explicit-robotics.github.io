@@ -16,7 +16,7 @@ Each robot class brings its kinematic and dynamic properties (e.g., axes of rota
 Note that for *Exp[licit]-MATLAB*, all member functions also accept symbolic arguments. This feature is helpful for control methods that require an analytical 
 formulation of the robot's equations of motion, e.g., adaptive control methods.
 
-Example Application for *Exp[licit]-MATLAB*
+Structure of Exp[licit]-MATLAB
 ==================
 
 While *Exp[licit]-MATLAB* supports various robots, we show here a Franka robot example (``main_franka.m``), which is inherited from the :class:`RobotPrimitives`-class. 
@@ -74,3 +74,32 @@ e.g., MATLAB’s pre-built ``ode45.m``.
 .. figure:: ../images/ExAppl_Franka.png
 	:align: center
 	:width: 800
+
+Structure of Exp[licit]-C++
+==================
+
+Currently, *Exp[licit]-cpp* supports one robot, the KUKA LBR iiwa 14. During the initialization, a robot object can be created,
+which is inherited from the :class:`RobotPrimitives`-class. The initialization is shown below:
+
+.. code-block:: cpp
+
+    // Use Explicit-cpp to create your robot
+    myLBR = new iiwa14( 1, "Trey");
+    myLBR->init( );
+
+    // Current joint configuration
+    q = Eigen::VectorXd::Zero( myLBR->nq );
+
+Here, the :func:`init`-member function initializes all Joint Twists and Generalized Mass Matrices for the initial configuration. The member 
+functions of the ``myLBR``-object can then be used:
+
+.. code-block:: cpp
+
+    // Homogeneous Transformation Matrix
+    H = myLBR->getForwardKinematics( q );
+
+    // Hybrid Jacobian Matrix (6x7)
+    J = myLBR->getHybridJacobian( q );
+
+    // Mass matrix
+    M = myLBR->getMassMatrix( q );
